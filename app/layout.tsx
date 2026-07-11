@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import ChatBot from '@/components/ChatBot'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({ 
@@ -52,6 +53,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
+        <ChatBot />
         <Analytics />
       </body>
     </html>
