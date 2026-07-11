@@ -96,12 +96,67 @@ const COURSES = [
   },
 ];
 
+const BOOKING_URL = "https://zibamedicalaesthetics.janeapp.com/";
+
+const COURSE_ALIASES: Record<string, string> = {
+  "advanced laser": "advanced-laser-technician",
+  "laser technician": "laser-technician",
+  "flagship diploma": "aesthetic-diploma",
+  "medical aesthetic specialist": "medical-aesthetic",
+};
+
+const QUICK_REPLY_LINKS: Record<string, string> = {
+  "Book a consultation": BOOKING_URL,
+  "Open booking page": BOOKING_URL,
+  "Contact page": "/contact",
+};
+
 // ── Intent matching ──────────────────────────────────────────────────────────
 
 interface Message {
   role: "bot" | "user";
   text: string;
   quickReplies?: string[];
+}
+
+type Course = (typeof COURSES)[number];
+
+function courseReply(course: Course): Message {
+  return {
+    role: "bot",
+    text: `**${course.title}**\n\n📅 Duration: ${course.duration}\n🎓 Level: ${course.level}\n\n${course.description}\n\nWould you like to enroll or learn more?`,
+    quickReplies: ["How to enroll?", "See all courses", "Book a consultation", "Location & contact"],
+  };
+}
+
+function findCourse(input: string): Course | undefined {
+  const q = input.toLowerCase().trim();
+
+  for (const [alias, key] of Object.entries(COURSE_ALIASES)) {
+    if (q.includes(alias)) {
+      return COURSES.find((c) => c.key === key);
+    }
+  }
+
+  const exact = COURSES.find((c) => c.title.toLowerCase() === q);
+  if (exact) return exact;
+
+  const byKey = COURSES.find((c) => q.includes(c.key));
+  if (byKey) return byKey;
+
+  const sorted = [...COURSES].sort((a, b) => b.title.length - a.title.length);
+  for (const course of sorted) {
+    const title = course.title.toLowerCase();
+    if (q.includes(title)) return course;
+
+    const keywords = course.title.toLowerCase().split(/\s+/).filter((kw) => kw.length > 3);
+    const matched = keywords.filter((kw) => new RegExp(`\\b${kw}\\b`).test(q));
+    if (matched.length >= Math.ceil(keywords.length * 0.75)) {
+      return course;
+    }
+  }
+
+  return undefined;
 }
 
 function getReply(input: string): Message {
@@ -117,7 +172,7 @@ function getReply(input: string): Message {
   }
 
   // All courses list
-  if (/all course|list|program|what do you offer|what course|what train/i.test(q)) {
+  if (/see all courses|show me all courses|all courses|all programs|what do you offer|what courses|what programs|what training/i.test(q)) {
     const list = COURSES.map((c) => `• **${c.title}** — ${c.duration} (${c.level})`).join("\n");
     return {
       role: "bot",
@@ -127,19 +182,31 @@ function getReply(input: string): Message {
   }
 
   // Individual course matching
-  for (const course of COURSES) {
-    const keywords = course.title.toLowerCase().split(/\s+/);
-    if (keywords.some((kw) => kw.length > 3 && q.includes(kw)) || q.includes(course.key)) {
-      return {
-        role: "bot",
-        text: `**${course.title}**\n\n📅 Duration: ${course.duration}\n🎓 Level: ${course.level}\n\n${course.description}\n\nWould you like to enroll or learn more?`,
-        quickReplies: ["How to enroll?", "See all courses", "Book a consultation", "Location & contact"],
-      };
-    }
+  const course = findCourse(q);
+  if (course) {
+    return courseReply(course);
+  }
+
+  // Book a consultation
+  if (/consult|book a|schedule|appointment|open booking/i.test(q)) {
+    return {
+      role: "bot",
+      text: "You can book a free consultation with our admissions team to discuss programs, pricing, and start dates.\n\n📅 **Online Booking:** zibamedicalaesthetics.janeapp.com\n📋 **Contact Form:** /contact\n\nWe'll help match you with the right program for your goals.",
+      quickReplies: ["Open booking page", "See all courses", "How to enroll?", "Contact page"],
+    };
+  }
+
+  // 2-day intensive courses
+  if (/2-day|2 day|two day|two-day/i.test(q)) {
+    return {
+      role: "bot",
+      text: "Our 2-day intensive courses are perfect if you want to add a skill quickly:\n\n• **Plasma PRP** — facial rejuvenation and hair restoration\n• **Microneedling** — collagen induction and scar treatment\n• **Non-Surgical Butt Lift** — body contouring with RF technology\n\nEach course includes hands-on training and certification.",
+      quickReplies: ["Plasma PRP", "Microneedling", "Non-Surgical Butt Lift", "How to enroll?"],
+    };
   }
 
   // Beginner / starter
-  if (/beginner|start|new|no experience|first time|getting start/i.test(q)) {
+  if (/beginner|i'm a beginner|im a beginner|no experience|first time|getting started/i.test(q)) {
     return {
       role: "bot",
       text: "Great question! For those new to aesthetics, we recommend starting with one of these beginner-friendly programs:\n\n• **Medical Aesthetician** (8 Weeks) — ideal foundation\n• **Skin Care** (4 Weeks) — clinical skincare essentials\n• **Micropigmentation** (5 Days) — permanent makeup\n\nFor the most complete start, our **Aesthetic Diploma** (16 Weeks) covers everything.",
@@ -148,7 +215,7 @@ function getReply(input: string): Message {
   }
 
   // Advanced / experienced
-  if (/advanced|experienced|already|upgrade|specialist/i.test(q)) {
+  if (/advanced|experienced|already practicing|upgrade|i'm experienced|im experienced/i.test(q)) {
     return {
       role: "bot",
       text: "For experienced practitioners looking to advance, we offer:\n\n• **Medical Aesthetic Specialist** (12 Weeks) — injectable and device mastery\n• **Advanced Medical Laser Technician** (6 Weeks) — multi-platform laser\n• **Non-Surgical Butt Lift** (2 Days) — body contouring\n• **Plasma PRP** (2 Days) — regenerative therapy",
@@ -175,7 +242,7 @@ function getReply(input: string): Message {
   }
 
   // Enrollment / how to register
-  if (/enroll|register|apply|sign up|how do i|admission|join|start/i.test(q)) {
+  if (/enroll|register|apply|sign up|how do i|admission|admissions|join/i.test(q)) {
     return {
       role: "bot",
       text: "Enrolling is simple:\n\n1️⃣ Browse our programs at /courses\n2️⃣ Book a free consultation with our admissions team\n3️⃣ Complete your application and choose a start date\n4️⃣ Secure your spot with a deposit\n\nOur admissions team is happy to guide you through the process and help match you with the right program.",
@@ -299,6 +366,17 @@ export default function ChatBot() {
       const reply = getReply(trimmed);
       setTyping(false);
       setMessages((prev) => [...prev, reply]);
+
+      const link = QUICK_REPLY_LINKS[trimmed];
+      if (link) {
+        setTimeout(() => {
+          if (link.startsWith("http")) {
+            window.open(link, "_blank", "noopener,noreferrer");
+          } else {
+            window.location.href = link;
+          }
+        }, 400);
+      }
     }, 700 + Math.random() * 400);
   }
 
