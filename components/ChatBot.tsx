@@ -334,13 +334,14 @@ const WELCOME: Message = {
 };
 
 export default function ChatBot() {
-  const [open, setOpen]       = useState(false);
+  const [open, setOpen]         = useState(false);
   const [messages, setMessages] = useState<Message[]>([WELCOME]);
-  const [input, setInput]     = useState("");
-  const [typing, setTyping]   = useState(false);
-  const [unread, setUnread]   = useState(1);
-  const bottomRef             = useRef<HTMLDivElement>(null);
-  const inputRef              = useRef<HTMLInputElement>(null);
+  const [input, setInput]       = useState("");
+  const [typing, setTyping]     = useState(false);
+  const [unread, setUnread]     = useState(1);
+  const [showTeaser, setShowTeaser] = useState(false);
+  const bottomRef               = useRef<HTMLDivElement>(null);
+  const inputRef                = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -349,9 +350,26 @@ export default function ChatBot() {
   useEffect(() => {
     if (open) {
       setUnread(0);
+      setShowTeaser(false);
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [open]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("ziba-chat-teaser-dismissed")) return;
+    const timer = setTimeout(() => setShowTeaser(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  function dismissTeaser() {
+    setShowTeaser(false);
+    sessionStorage.setItem("ziba-chat-teaser-dismissed", "1");
+  }
+
+  function openChat() {
+    setOpen(true);
+    dismissTeaser();
+  }
 
   function sendMessage(text: string) {
     const trimmed = text.trim();
@@ -381,21 +399,59 @@ export default function ChatBot() {
   }
 
   return (
-    <>
+    <div className="fixed bottom-0 right-0 z-[9999] pointer-events-none">
+      {/* Proactive welcome notification */}
+      {showTeaser && !open && (
+        <div
+          className="pointer-events-auto absolute bottom-24 right-6 w-[min(320px,calc(100vw-48px))] rounded-2xl border shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500"
+          style={{ borderColor: "oklch(0.88 0.018 70)", background: "oklch(0.99 0.008 75)" }}
+        >
+          <div className="px-4 py-3 flex items-center justify-between" style={{ background: "oklch(0.32 0.045 55)" }}>
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ background: "oklch(0.68 0.095 70)" }}>
+                <Sparkles size={12} className="text-white" />
+              </div>
+              <p className="text-[12px] font-semibold text-white">Ziba Assistant</p>
+            </div>
+            <button
+              onClick={dismissTeaser}
+              aria-label="Dismiss notification"
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              <X size={16} />
+            </button>
+          </div>
+          <button onClick={openChat} className="w-full text-left px-4 py-3 hover:bg-black/[0.02] transition-colors">
+            <p className="text-[13px] leading-relaxed" style={{ color: "oklch(0.32 0.045 55)" }}>
+              {WELCOME.text}
+            </p>
+            <p className="text-[11px] font-medium mt-2 flex items-center gap-1" style={{ color: "oklch(0.68 0.095 70)" }}>
+              Tap to chat <ChevronRight size={12} />
+            </p>
+          </button>
+        </div>
+      )}
+
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Open chat assistant"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
+        className="pointer-events-auto absolute bottom-6 right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
         style={{ background: "oklch(0.32 0.045 55)" }}
       >
+        {!open && (
+          <span
+            className="absolute inset-0 rounded-full animate-ping opacity-30"
+            style={{ background: "oklch(0.68 0.095 70)" }}
+          />
+        )}
         {open ? (
-          <X size={22} className="text-[#f5f3ef]" />
+          <X size={22} className="text-[#f5f3ef] relative" />
         ) : (
-          <MessageCircle size={22} className="text-[#f5f3ef]" />
+          <MessageCircle size={22} className="text-[#f5f3ef] relative" />
         )}
         {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#C4956A] text-white text-[10px] font-bold flex items-center justify-center">
+          <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#C4956A] text-white text-[10px] font-bold flex items-center justify-center ring-2 ring-white">
             {unread}
           </span>
         )}
@@ -403,8 +459,8 @@ export default function ChatBot() {
 
       {/* Chat window */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-24px)] flex flex-col rounded-2xl overflow-hidden shadow-2xl border transition-all duration-300 origin-bottom-right ${
-          open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
+        className={`pointer-events-auto absolute bottom-24 right-6 w-[360px] max-w-[calc(100vw-24px)] flex flex-col rounded-2xl overflow-hidden shadow-2xl border transition-all duration-300 origin-bottom-right ${
+          open ? "opacity-100 scale-100" : "opacity-0 scale-95 invisible"
         }`}
         style={{ height: 560, borderColor: "oklch(0.88 0.018 70)", background: "oklch(0.99 0.008 75)" }}
       >
@@ -516,6 +572,6 @@ export default function ChatBot() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
