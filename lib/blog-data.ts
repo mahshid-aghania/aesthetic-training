@@ -6,7 +6,7 @@ export interface BlogPost {
   metaDescription: string
   primaryKeyword: string
   secondaryKeywords: string[]
-  searchIntent: "Educational" | "Career" | "Commercial-Training"
+  searchIntent: "Educational" | "Career" | "Commercial-Training" | "Commercial-Local" | "Commercial"
   excerpt: string
   content: BlogContent
   faqs: FAQ[]
@@ -46,6 +46,7 @@ interface InternalLink {
 interface ExternalLink {
   text: string
   description: string
+  href?: string
 }
 
 export const blogPosts: BlogPost[] = [
@@ -14824,7 +14825,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-05",
     readTime: "9 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/botox-training-cost-toronto-2026.png"
   },
   {
     id: 111,
@@ -14883,7 +14884,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-06",
     readTime: "8 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/best-botox-training-course-toronto.png"
   },
   {
     id: 112,
@@ -14941,7 +14942,7 @@ export const blogPosts: BlogPost[] = [
     category: "Career Guides",
     publishedAt: "2026-01-07",
     readTime: "9 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/botox-certification-nurses-ontario.png"
   },
   {
     id: 113,
@@ -14996,7 +14997,7 @@ export const blogPosts: BlogPost[] = [
     category: "Local Training",
     publishedAt: "2026-01-08",
     readTime: "8 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/filler-training-near-me-north-york-thornhill-markham.png"
   },
   {
     id: 114,
@@ -15051,7 +15052,7 @@ export const blogPosts: BlogPost[] = [
     category: "Education Guides",
     publishedAt: "2026-01-09",
     readTime: "8 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/botox-vs-dysport-vs-xeomin.png"
   },
   {
     id: 115,
@@ -15106,7 +15107,7 @@ export const blogPosts: BlogPost[] = [
     category: "Education Guides",
     publishedAt: "2026-01-10",
     readTime: "8 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/juvederm-vs-restylane-vs-teoxane-filler-training.png"
   },
   {
     id: 116,
@@ -15161,7 +15162,7 @@ export const blogPosts: BlogPost[] = [
     category: "Career Guides",
     publishedAt: "2026-01-11",
     readTime: "9 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/how-much-earn-after-botox-certification-toronto.png"
   },
   {
     id: 117,
@@ -15215,7 +15216,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-12",
     readTime: "8 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/botox-training-payment-plans-financing-toronto.png"
   },
   {
     id: 118,
@@ -15269,7 +15270,7 @@ export const blogPosts: BlogPost[] = [
     category: "Education Guides",
     publishedAt: "2026-01-13",
     readTime: "9 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/botox-certification-requirements-ontario.png"
   },
   {
     id: 119,
@@ -15323,7 +15324,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-14",
     readTime: "9 min read",
-    image: "/images/courses/botox-filler.jpg"
+    image: "/images/blog/5-day-botox-filler-course-toronto-day-by-day.png"
   },
   {
     id: 120,
@@ -15374,7 +15375,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-15",
     readTime: "8 min read",
-    image: "/images/courses/body-contouring.jpg"
+    image: "/images/blog/non-surgical-butt-lift-certification-toronto.png"
   },
   {
     id: 121,
@@ -15428,7 +15429,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-16",
     readTime: "8 min read",
-    image: "/images/courses/body-contouring.jpg"
+    image: "/images/blog/vacuum-therapy-rf-body-contouring-training.png"
   },
   {
     id: 122,
@@ -15482,7 +15483,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-17",
     readTime: "9 min read",
-    image: "/images/courses/plasma-prp.jpg"
+    image: "/images/blog/prp-training-cost-toronto-2026.png"
   },
   {
     id: 123,
@@ -15536,7 +15537,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-18",
     readTime: "8 min read",
-    image: "/images/courses/plasma-prp.jpg"
+    image: "/images/blog/prp-hair-restoration-training.png"
   },
   {
     id: 124,
@@ -15590,7 +15591,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-19",
     readTime: "9 min read",
-    image: "/images/courses/micropigmentation.jpg"
+    image: "/images/blog/micropigmentation-training-cost-toronto.png"
   },
   {
     id: 125,
@@ -15645,7 +15646,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-20",
     readTime: "8 min read",
-    image: "/images/courses/micropigmentation.jpg"
+    image: "/images/blog/best-permanent-makeup-training-toronto.png"
   },
   {
     id: 126,
@@ -15699,7 +15700,7 @@ export const blogPosts: BlogPost[] = [
     category: "Career Guides",
     publishedAt: "2026-01-21",
     readTime: "9 min read",
-    image: "/images/courses/medical-aesthetician.jpg"
+    image: "/images/blog/medical-aesthetician-certification-cost-length.png"
   },
   {
     id: 127,
@@ -15749,7 +15750,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-22",
     readTime: "8 min read",
-    image: "/images/courses/advanced-laser.jpg"
+    image: "/images/blog/advanced-medical-laser-technician-course.png"
   },
   {
     id: 128,
@@ -15803,7 +15804,7 @@ export const blogPosts: BlogPost[] = [
     category: "Career Guides",
     publishedAt: "2026-01-23",
     readTime: "9 min read",
-    image: "/images/courses/medical-specialist.jpg"
+    image: "/images/blog/medical-aesthetic-specialist-diploma-cost.png"
   },
   {
     id: 129,
@@ -15853,7 +15854,7 @@ export const blogPosts: BlogPost[] = [
     category: "Training Programs",
     publishedAt: "2026-01-24",
     readTime: "8 min read",
-    image: "/images/courses/skin-care.jpg"
+    image: "/images/blog/skin-care-certification-toronto.png"
   },
   {
     id: 130,
@@ -15907,7 +15908,7 @@ export const blogPosts: BlogPost[] = [
     category: "Education Guides",
     publishedAt: "2026-01-25",
     readTime: "9 min read",
-    image: "/images/courses/aesthetic-diploma.jpg"
+    image: "/images/blog/aesthetic-diploma-vs-botox-filler-course.png"
   },
   {
     id: 131,
@@ -15961,7 +15962,7 @@ export const blogPosts: BlogPost[] = [
     category: "Career Guides",
     publishedAt: "2026-01-26",
     readTime: "9 min read",
-    image: "/images/courses/medical-aesthetician.jpg"
+    image: "/images/blog/medical-aesthetician-vs-esthetician-difference.png"
   }
 ]
 
