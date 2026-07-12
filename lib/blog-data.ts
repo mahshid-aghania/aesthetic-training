@@ -14766,7 +14766,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 110,
-    slug: "botox-training-cost-toronto-2026",
+    slug: "botox-training-cost-toronto",
     title: "Botox Training Cost in Toronto: 2026 Pricing Breakdown & What's Included",
     seoTitle: "Botox Training Cost Toronto 2026 | Pricing & Financing",
     metaDescription: "A transparent 2026 breakdown of Botox and filler training costs in Toronto, what tuition includes, and financing options that make certification accessible.",
@@ -14816,7 +14816,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
-      { text: "Payment Plans & Financing", href: "/blog/botox-training-payment-plans-financing-toronto" },
+      { text: "Payment Plans & Financing", href: "/blog/botox-training-payment-plan-toronto" },
       { text: "Admissions", href: "/admissions" }
     ],
     externalLinks: [
@@ -14829,7 +14829,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 111,
-    slug: "best-botox-training-course-toronto",
+    slug: "best-botox-training-toronto",
     title: "Best Botox Training Course in Toronto: How to Choose",
     seoTitle: "Best Botox Training Course Toronto | How to Choose",
     metaDescription: "A practical framework for choosing the best Botox training course in Toronto, comparing the factors that determine whether you graduate a safe, confident injector.",
@@ -14876,7 +14876,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
       { text: "Why Train With Us", href: "/why-train-with-us" },
-      { text: "Botox Training Cost", href: "/blog/botox-training-cost-toronto-2026" }
+      { text: "Botox Training Cost", href: "/blog/botox-training-cost-toronto" }
     ],
     externalLinks: [
       { text: "Ziba Aesthetics Training", description: "Recognized Botox and filler certification in the GTA" }
@@ -14888,7 +14888,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 112,
-    slug: "botox-certification-nurses-ontario",
+    slug: "botox-certification-for-nurses-ontario",
     title: "Botox Certification for Nurses in Ontario",
     seoTitle: "Botox Certification for Nurses in Ontario | RN & RPN Guide",
     metaDescription: "Everything Ontario nurses need to know about getting Botox certified, including scope of practice, medical directives, training requirements, and how to start injecting.",
@@ -15001,7 +15001,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 114,
-    slug: "botox-vs-dysport-vs-xeomin",
+    slug: "botox-vs-dysport-vs-xeomin-training",
     title: "Botox vs Dysport vs Xeomin: What Practitioners Learn",
     seoTitle: "Botox vs Dysport vs Xeomin | Neurotoxin Training Guide",
     metaDescription: "A practitioner-focused comparison of Botox, Dysport, and Xeomin, covering the dosing, onset, and diffusion differences injectors learn during neurotoxin training.",
@@ -15044,7 +15044,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
       { text: "Botox Certification Requirements", href: "/blog/botox-certification-requirements-ontario" },
-      { text: "Filler Product Comparison", href: "/blog/juvederm-vs-restylane-vs-teoxane-filler-training" }
+      { text: "Filler Product Comparison", href: "/blog/juvederm-vs-restylane-vs-teoxane-training" }
     ],
     externalLinks: [
       { text: "Health Canada", description: "Approved uses and product information for botulinum toxin products" }
@@ -15056,7 +15056,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 115,
-    slug: "juvederm-vs-restylane-vs-teoxane-filler-training",
+    slug: "juvederm-vs-restylane-vs-teoxane-training",
     title: "Juvederm vs Restylane vs Teoxane Filler Training",
     seoTitle: "Juvederm vs Restylane vs Teoxane | Filler Training Guide",
     metaDescription: "A comparison of the Juvederm, Restylane, and Teoxane filler families and how injectors learn to match product properties to facial areas and patient goals.",
@@ -15098,7 +15098,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
-      { text: "Neurotoxin Comparison", href: "/blog/botox-vs-dysport-vs-xeomin" },
+      { text: "Neurotoxin Comparison", href: "/blog/botox-vs-dysport-vs-xeomin-training" },
       { text: "Why Train With Us", href: "/why-train-with-us" }
     ],
     externalLinks: [
@@ -15111,7 +15111,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 116,
-    slug: "how-much-earn-after-botox-certification-toronto",
+    slug: "botox-injector-salary-toronto",
     title: "How Much Can You Earn After Botox Certification in Toronto?",
     seoTitle: "Botox Injector Salary Toronto | Earnings After Certification",
     metaDescription: "A realistic look at what certified Botox injectors can earn in Toronto, including per-treatment fees, income models, and the factors that drive higher pay.",
@@ -15166,7 +15166,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 117,
-    slug: "botox-training-payment-plans-financing-toronto",
+    slug: "botox-training-payment-plan-toronto",
     title: "Botox Training Payment Plans & Financing in Toronto",
     seoTitle: "Botox Training Payment Plans & Financing Toronto",
     metaDescription: "How Botox training payment plans and financing work in Toronto, so you can start certification now and pay tuition over manageable installments.",
@@ -15206,7 +15206,7 @@ export const blogPosts: BlogPost[] = [
       { question: "How do I set up a payment plan?", answer: "Contact the admissions team to learn about deposit amounts, installment schedules, and any third-party financing partners available." }
     ],
     internalLinks: [
-      { text: "Botox Training Cost", href: "/blog/botox-training-cost-toronto-2026" },
+      { text: "Botox Training Cost", href: "/blog/botox-training-cost-toronto" },
       { text: "Financing Your Aesthetic Training", href: "/blog/financing-aesthetic-training-toronto" },
       { text: "Admissions", href: "/admissions" }
     ],
@@ -15261,7 +15261,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
-      { text: "Botox Certification for Nurses", href: "/blog/botox-certification-nurses-ontario" },
+      { text: "Botox Certification for Nurses", href: "/blog/botox-certification-for-nurses-ontario" },
       { text: "Ontario Training Requirements", href: "/blog/aesthetic-training-requirements-ontario" }
     ],
     externalLinks: [
@@ -15274,7 +15274,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 119,
-    slug: "5-day-botox-filler-course-toronto-day-by-day",
+    slug: "botox-filler-course-toronto-day-by-day",
     title: "5-Day Botox & Filler Course Toronto: Day-by-Day",
     seoTitle: "5-Day Botox & Filler Course Toronto | Day-by-Day Breakdown",
     metaDescription: "A day-by-day walkthrough of an intensive 5-day Botox and filler course in Toronto, showing how theory builds into confident, supervised live-model injecting.",
@@ -15315,7 +15315,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Botox & Filler Course", href: "/courses/botox-filler" },
-      { text: "Best Botox Training Course", href: "/blog/best-botox-training-course-toronto" },
+      { text: "Best Botox Training Course", href: "/blog/best-botox-training-toronto" },
       { text: "Admissions", href: "/admissions" }
     ],
     externalLinks: [
@@ -15367,7 +15367,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "Non-Surgical Butt Lift Course", href: "/courses/butt-lift" },
       { text: "Body Contouring Training", href: "/blog/body-contouring-training-certification-toronto" },
-      { text: "Vacuum Therapy & RF Training", href: "/blog/vacuum-therapy-rf-body-contouring-training" }
+      { text: "Vacuum Therapy & RF Training", href: "/blog/body-contouring-training-toronto" }
     ],
     externalLinks: [
       { text: "Ziba Aesthetics Training", description: "Non-surgical body contouring certification in the GTA" }
@@ -15379,7 +15379,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 121,
-    slug: "vacuum-therapy-rf-body-contouring-training",
+    slug: "body-contouring-training-toronto",
     title: "Vacuum Therapy & RF Body Contouring Training",
     seoTitle: "Vacuum Therapy & RF Body Contouring Training Toronto",
     metaDescription: "An overview of vacuum therapy and radiofrequency body contouring training in Toronto, covering techniques, eligibility, and career opportunities.",
@@ -15433,7 +15433,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 122,
-    slug: "prp-training-cost-toronto-2026",
+    slug: "prp-training-cost-toronto",
     title: "PRP Training Cost in Toronto: 2026 Pricing",
     seoTitle: "PRP Training Cost Toronto 2026 | Pricing & What's Included",
     metaDescription: "A 2026 breakdown of PRP training costs in Toronto, what quality tuition should include, and how financing makes certification accessible.",
@@ -15528,7 +15528,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Plasma PRP Course", href: "/courses/plasma-prp" },
-      { text: "PRP Training Cost", href: "/blog/prp-training-cost-toronto-2026" },
+      { text: "PRP Training Cost", href: "/blog/prp-training-cost-toronto" },
       { text: "PRP Therapy Training", href: "/blog/prp-therapy-training-toronto" }
     ],
     externalLinks: [
@@ -15582,7 +15582,7 @@ export const blogPosts: BlogPost[] = [
     ],
     internalLinks: [
       { text: "Micropigmentation Course", href: "/courses/micropigmentation" },
-      { text: "Best Permanent Makeup Training", href: "/blog/best-permanent-makeup-training-toronto" },
+      { text: "Best Permanent Makeup Training", href: "/blog/best-pmu-training-toronto" },
       { text: "PMU Career Guide", href: "/blog/permanent-makeup-training-micropigmentation-career" }
     ],
     externalLinks: [
@@ -15595,7 +15595,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 125,
-    slug: "best-permanent-makeup-training-toronto",
+    slug: "best-pmu-training-toronto",
     title: "Best Permanent Makeup Training Toronto",
     seoTitle: "Best Permanent Makeup Training Toronto | How to Choose",
     metaDescription: "A practical framework for choosing the best permanent makeup training in Toronto, focusing on the factors that determine whether you graduate a skilled PMU artist.",
@@ -15650,7 +15650,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 126,
-    slug: "medical-aesthetician-certification-cost-length",
+    slug: "medical-aesthetician-certification-cost",
     title: "Medical Aesthetician Certification Cost & Length",
     seoTitle: "Medical Aesthetician Certification Cost & Length Toronto",
     metaDescription: "A clear guide to medical aesthetician certification cost and length in Toronto, including what tuition covers and how financing makes the diploma accessible.",
@@ -15692,7 +15692,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "Medical Aesthetician Program", href: "/courses/medical-aesthetician" },
       { text: "How to Become a Medical Aesthetician", href: "/blog/how-to-become-medical-aesthetician-toronto" },
-      { text: "Medical Aesthetician vs Esthetician", href: "/blog/medical-aesthetician-vs-esthetician-difference" }
+      { text: "Medical Aesthetician vs Esthetician", href: "/blog/medical-aesthetician-vs-esthetician" }
     ],
     externalLinks: [
       { text: "Ziba Aesthetics Training", description: "Medical aesthetician certification in the GTA" }
@@ -15704,7 +15704,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 127,
-    slug: "advanced-medical-laser-technician-course",
+    slug: "advanced-laser-technician-course-toronto",
     title: "Advanced Medical Laser Technician Course",
     seoTitle: "Advanced Medical Laser Technician Course Toronto",
     metaDescription: "An overview of the advanced medical laser technician course in Toronto, including the modalities covered, who can enrol, and career opportunities in laser aesthetics.",
@@ -15858,7 +15858,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 130,
-    slug: "aesthetic-diploma-vs-botox-filler-course",
+    slug: "aesthetic-diploma-vs-botox-course",
     title: "Aesthetic Diploma vs Botox & Filler Course",
     seoTitle: "Aesthetic Diploma vs Botox & Filler Course | Which to Choose",
     metaDescription: "A clear comparison of a comprehensive aesthetic diploma versus a focused Botox and filler course to help you choose the path that fits your goals and budget.",
@@ -15912,7 +15912,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 131,
-    slug: "medical-aesthetician-vs-esthetician-difference",
+    slug: "medical-aesthetician-vs-esthetician",
     title: "Medical Aesthetician vs Esthetician: What's the Difference?",
     seoTitle: "Medical Aesthetician vs Esthetician | Key Differences",
     metaDescription: "A clear comparison of medical aestheticians and estheticians, covering scope of practice, training, work settings, and earning potential to help you choose your path.",
@@ -15954,7 +15954,7 @@ export const blogPosts: BlogPost[] = [
     internalLinks: [
       { text: "Medical Aesthetician Program", href: "/courses/medical-aesthetician" },
       { text: "How to Become a Medical Aesthetician", href: "/blog/how-to-become-medical-aesthetician-toronto" },
-      { text: "Certification Cost & Length", href: "/blog/medical-aesthetician-certification-cost-length" }
+      { text: "Certification Cost & Length", href: "/blog/medical-aesthetician-certification-cost" }
     ],
     externalLinks: [
       { text: "Ziba Aesthetics Training", description: "Medical aesthetician certification in the GTA" }
