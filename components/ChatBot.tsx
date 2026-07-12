@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import { X, Send, MessageCircle, ChevronRight, Sparkles } from "lucide-react";
 
 // ── Knowledge base ──────────────────────────────────────────────────────────
@@ -96,8 +96,6 @@ const COURSES = [
   },
 ];
 
-const BOOKING_URL = "https://zibamedicalaesthetics.janeapp.com/";
-
 const COURSE_ALIASES: Record<string, string> = {
   "advanced laser": "advanced-laser-technician",
   "laser technician": "laser-technician",
@@ -105,9 +103,8 @@ const COURSE_ALIASES: Record<string, string> = {
   "medical aesthetic specialist": "medical-aesthetic",
 };
 
+// Quick replies that navigate within the site
 const QUICK_REPLY_LINKS: Record<string, string> = {
-  "Book a consultation": BOOKING_URL,
-  "Open booking page": BOOKING_URL,
   "Contact page": "/contact",
 };
 
@@ -117,6 +114,7 @@ interface Message {
   role: "bot" | "user";
   text: string;
   quickReplies?: string[];
+  form?: boolean;
 }
 
 type Course = (typeof COURSES)[number];
@@ -125,7 +123,7 @@ function courseReply(course: Course): Message {
   return {
     role: "bot",
     text: `**${course.title}**\n\n📅 Duration: ${course.duration}\n🎓 Level: ${course.level}\n\n${course.description}\n\nWould you like to enroll or learn more?`,
-    quickReplies: ["How to enroll?", "See all courses", "Book a consultation", "Location & contact"],
+    quickReplies: ["How to enroll?", "See all courses", "Request a consultation", "Location & contact"],
   };
 }
 
@@ -187,12 +185,12 @@ function getReply(input: string): Message {
     return courseReply(course);
   }
 
-  // Book a consultation
-  if (/consult|book a|schedule|appointment|open booking/i.test(q)) {
+  // Book a consultation → show the inline form
+  if (/consult|book a|booking|schedule|appointment/i.test(q)) {
     return {
       role: "bot",
-      text: "You can book a free consultation with our admissions team to discuss programs, pricing, and start dates.\n\n📅 **Online Booking:** zibamedicalaesthetics.janeapp.com\n📋 **Contact Form:** /contact\n\nWe'll help match you with the right program for your goals.",
-      quickReplies: ["Open booking page", "See all courses", "How to enroll?", "Contact page"],
+      text: "I'd be happy to help you book a free consultation with our admissions team. Just fill in your details below and we'll reach out to discuss programs, pricing, and start dates.",
+      form: true,
     };
   }
 
@@ -272,7 +270,7 @@ function getReply(input: string): Message {
   if (/contact|phone|email|call|reach|get in touch/i.test(q)) {
     return {
       role: "bot",
-      text: "You can reach us through:\n\n📋 **Contact Form:** Visit our /contact page\n📅 **Book a Consultation:** Schedule a free call with our admissions team\n🌐 **Online Booking:** zibamedicalaesthetics.janeapp.com\n\nOur team typically responds within 1 business day.",
+      text: "You can reach us through:\n\n📞 **Phone:** (416) 318-7447\n📧 **Email:** admissions@zibaesthetics.com\n📍 **Visit:** 7191 Yonge St Unit 701, Markham, ON\n\nOr request a free consultation right here and our admissions team will get back to you within 1 business day.",
       quickReplies: ["Book a consultation", "See all courses", "Which course suits me?"],
     };
   }
@@ -325,7 +323,106 @@ function formatText(text: string) {
   });
 }
 
-// ── Component ────────────────────────────────────────────────────────────────
+// ── Component ──────────────────────────────────────────────��─────────────────
+
+function ConsultationForm() {
+  const [state, setState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [data, setData] = useState({ firstName: "", lastName: "", email: "", phone: "" });
+
+  const inputStyle = {
+    borderColor: "oklch(0.88 0.018 70)",
+    background: "oklch(0.965 0.012 75)",
+    color: "oklch(0.32 0.045 55)",
+  } as const;
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setState("submitting");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("failed");
+      setState("success");
+    } catch {
+      setState("error");
+    }
+  }
+
+  if (state === "success") {
+    return (
+      <div
+        className="mt-2 rounded-2xl rounded-tl-sm px-4 py-4 text-[13px] leading-relaxed"
+        style={{ background: "oklch(0.93 0.015 70)", color: "oklch(0.32 0.045 55)" }}
+      >
+        <p className="font-semibold">Request received!</p>
+        <p className="mt-1" style={{ color: "oklch(0.52 0.035 55)" }}>
+          Thank you — our admissions team will reach out within 1 business day to arrange your free consultation.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="mt-2 rounded-2xl rounded-tl-sm px-4 py-4 space-y-2.5"
+      style={{ background: "oklch(0.93 0.015 70)" }}
+    >
+      <div className="grid grid-cols-2 gap-2">
+        <input
+          required
+          placeholder="First name *"
+          value={data.firstName}
+          onChange={(e) => setData({ ...data, firstName: e.target.value })}
+          className="text-[13px] px-3 py-2 rounded-lg border outline-none w-full"
+          style={inputStyle}
+        />
+        <input
+          required
+          placeholder="Family name *"
+          value={data.lastName}
+          onChange={(e) => setData({ ...data, lastName: e.target.value })}
+          className="text-[13px] px-3 py-2 rounded-lg border outline-none w-full"
+          style={inputStyle}
+        />
+      </div>
+      <input
+        required
+        type="email"
+        placeholder="Email address *"
+        value={data.email}
+        onChange={(e) => setData({ ...data, email: e.target.value })}
+        className="text-[13px] px-3 py-2 rounded-lg border outline-none w-full"
+        style={inputStyle}
+      />
+      <input
+        type="tel"
+        placeholder="Phone number"
+        value={data.phone}
+        onChange={(e) => setData({ ...data, phone: e.target.value })}
+        className="text-[13px] px-3 py-2 rounded-lg border outline-none w-full"
+        style={inputStyle}
+      />
+      {state === "error" && (
+        <p className="text-[11px] text-red-600">
+          Something went wrong. Please try again or call (416) 318-7447.
+        </p>
+      )}
+      <button
+        type="submit"
+        disabled={state === "submitting"}
+        className="w-full text-[13px] font-medium text-white py-2.5 rounded-lg transition-all disabled:opacity-50 hover:opacity-90 flex items-center justify-center gap-1.5"
+        style={{ background: "oklch(0.32 0.045 55)" }}
+      >
+        {state === "submitting" ? "Sending..." : "Request Consultation"}
+        {state !== "submitting" && <Send size={13} />}
+      </button>
+    </form>
+  );
+}
 
 const WELCOME: Message = {
   role: "bot",
@@ -502,6 +599,8 @@ export default function ChatBot() {
                     {msg.text}
                   </div>
                 )}
+                {/* Inline consultation form */}
+                {msg.role === "bot" && msg.form && <ConsultationForm />}
                 {/* Quick replies */}
                 {msg.role === "bot" && msg.quickReplies && (
                   <div className="flex flex-wrap gap-1.5 mt-2">
