@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seminar in China 2026 — Course Card</title>
+
+  <!-- Exact fonts used on cde.dentistry.utoronto.ca -->
+  <link rel="stylesheet" href="https://use.typekit.net/zus2vnf.css" />
+
+  <!-- Tailwind CDN with U of T CDE brand colors -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            utred: "#dc4633",
+            utfuchsia: "#ab1368",
+          },
+          fontFamily: {
+            sans: ["trade-gothic-next", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: trade-gothic-next, sans-serif;
+      margin: 0;
+      background: #f5f5f7;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Exact card structure from:
+       https://cde.dentistry.utoronto.ca/upcoming-courses/?_course_types=1c3f0e4326be90d8a0ccd7de206ea32a
+  -->
+  <div
+    id="card-cont"
+    class="mx-auto h-auto min-h-[300px] w-full max-w-md rounded-2xl px-1"
+  >
+    <div
+      id="card"
+      class="card group relative flex h-full w-full flex-col justify-start rounded-xl bg-white p-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_9px_20px_rgb(0,0,0,0.2)]"
+      style="
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0)),
+          url('https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/02/Seminar-in-China-card.jpg');
+        background-position: left;
+        background-size: cover;
+      "
+      title="Background Image"
+    >
+      <!-- CALLOUT -->
+      <div class="mb-4">
+        <div
+          class="callout mb-0 text-xs font-semibold uppercase text-white md:mb-2 md:text-base group-[.card]:text-lg xl:text-xl group-[.card]:xl:text-lg"
+        >
+          <svg
+            class="-mt-1 mr-1 inline-block h-6 w-6 fill-white text-white md:h-9 md:w-9"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span class="fill-white text-white">Travel &amp; Learn</span>
+        </div>
+      </div>
+
+      <!-- PRESENTER IMAGES -->
+      <section id="presenters-round" class="hero mb-2 flex min-h-0 md:min-h-[200px]">
+        <div class="flex w-full items-center justify-center -space-x-6">
+          <img
+            class="h-20 w-20 rounded-full object-cover md:h-[6.5rem] md:w-[6.5rem]"
+            src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/03/Maria-Colaiacovo.png"
+            alt="Maria Colaiacovo"
+          />
+          <img
+            class="h-20 w-20 rounded-full object-cover md:h-[6.5rem] md:w-[6.5rem]"
+            src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2025/07/Chris-Swayze-1.jpg"
+            alt="Chris Swayze"
+          />
+          <img
+            class="h-20 w-20 rounded-full object-cover md:h-[6.5rem] md:w-[6.5rem]"
+            src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/06/Matthew-Chuk-e1781117363760.jpg"
+            alt="Matthew Chuk"
+          />
+        </div>
+      </section>
+
+      <!-- TITLE -->
+      <section class="title">
+        <h2
+          class="group mb-0 mt-0 text-2xl font-bold !leading-tight text-white no-underline md:mt-2 lg:text-2xl"
+        >
+          Seminar in China 2026
+        </h2>
+      </section>
+
+      <!-- DATE -->
+      <section class="date mb-0 mt-3 flex flex-row">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          class="mr-2 mt-1 h-6 w-6 stroke-white"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+          />
+        </svg>
+        <div id="course-date" class="m-0 p-0 text-white">
+          <h2 class="text-lg font-semibold text-white">Oct 9&ndash;20, 2026</h2>
+        </div>
+      </section>
+
+      <!-- SPEAKERS -->
+      <section class="presenter hora mb-16">
+        <div class="mt-3 text-lg font-bold leading-6 text-white">
+          Speakers: Dr. Maria Colaiacovo, Dr. Chris Swayze and Dr. Matthew Chuk
+        </div>
+      </section>
+
+      <!-- BUTTON -->
+      <section id="badges" class="mt-auto flex w-full flex-row justify-between align-middle">
+        <div class="flex flex-row flex-wrap items-start justify-end space-x-2 align-middle"></div>
+        <div id="course-link-button" class="mt-auto">
+          <a
+            href="https://cde.dentistry.utoronto.ca/courses/china-2026/"
+            class="z-50 no-underline"
+          >
+            <button
+              type="button"
+              class="group/button -mt-1 rounded-full bg-white py-1 pl-7 pr-3 text-base font-semibold text-utred shadow-sm transition-all duration-150 ease-linear hover:bg-utfuchsia hover:text-white"
+            >
+              Learn More
+              <svg
+                class="-mt-0.5 inline-block h-7 w-7 fill-utred group-hover/button:fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5f6368"
+              >
+                <path
+                  d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
+                />
+              </svg>
+              <span class="sr-only">Special Price Available</span>
+            </button>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
