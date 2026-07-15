@@ -7,7 +7,8 @@
 -->
 <style>
   .china-2026-card-wrap {
-    max-width: 640px;
+    max-width: 680px;
+    width: 100%;
     margin: 0 auto 2rem;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -23,11 +24,12 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    min-height: 680px;
+    min-height: 720px;
     padding: 28px;
     border-radius: 16px;
     color: #ffffff;
-    background-color: #ffffff;
+    overflow: hidden;
+    background-color: #111111;
     background-image: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.45)),
       url("https://www.confidentist.ca/wp-content/uploads/2026/07/ChatGPT-Image-Jul-15-2026-11_58_15-AM.png");
     background-position: center center;
@@ -40,7 +42,7 @@
     box-shadow: 0 12px 28px rgb(0, 0, 0, 0.28);
   }
   .china-2026-callout {
-    margin: 0 0 20px;
+    margin: 0 0 18px;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -60,34 +62,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 230px;
-    margin: 0 0 14px;
+    width: 100%;
+    min-height: 250px;
+    margin: 0 0 16px;
   }
   .china-2026-speakers-row {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
   }
   .china-2026-speakers-row img {
-    width: 160px;
-    height: 160px;
-    margin-left: -36px;
+    width: 190px;
+    height: 190px;
+    margin-left: -42px;
     border-radius: 9999px;
     object-fit: cover;
     object-position: center center;
     display: block;
     border: 0;
     background: transparent;
+    flex-shrink: 0;
   }
   .china-2026-speakers-row img:first-child {
     margin-left: 0;
   }
   .china-2026-title {
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     font-size: 30px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: #ffffff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .china-2026-date {
     display: flex;
@@ -108,7 +115,7 @@
     color: #ffffff;
   }
   .china-2026-presenter {
-    margin: 16px 0 80px;
+    margin: 16px 0 36px;
     font-size: 19px;
     font-weight: 700;
     line-height: 1.45;
@@ -125,9 +132,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 4px;
     white-space: nowrap;
-    padding: 10px 16px 10px 32px;
+    padding: 12px 18px 12px 30px;
     border: 0;
     border-radius: 9999px;
     background: #ffffff;
@@ -141,9 +148,10 @@
     cursor: pointer;
   }
   .china-2026-btn svg {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     fill: #dc4633;
+    flex-shrink: 0;
     transition: fill 0.15s ease;
   }
   .china-2026-btn:hover,
@@ -156,31 +164,86 @@
   .china-2026-btn:focus svg {
     fill: #ffffff;
   }
-  @media (max-width: 640px) {
+
+  /* Tablet */
+  @media (max-width: 768px) {
     .china-2026-card-wrap {
       max-width: 100%;
+      padding: 0 8px;
     }
     .china-2026-card {
-      min-height: 600px;
-      padding: 20px;
+      min-height: 0;
+      padding: 22px;
+    }
+    .china-2026-speakers {
+      min-height: 210px;
     }
     .china-2026-speakers-row img {
-      width: 112px;
-      height: 112px;
-      margin-left: -26px;
+      width: 150px;
+      height: 150px;
+      margin-left: -34px;
+    }
+    .china-2026-title {
+      font-size: 26px;
+    }
+    .china-2026-presenter,
+    .china-2026-date-text {
+      font-size: 17px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 540px) {
+    .china-2026-card-wrap {
+      margin: 0 auto 1.5rem;
+      padding: 0 4px;
+    }
+    .china-2026-card {
+      min-height: 0;
+      padding: 18px 16px 20px;
+      border-radius: 14px;
+    }
+    .china-2026-callout {
+      margin: 0 0 14px;
+      font-size: 14px;
+    }
+    .china-2026-callout svg {
+      width: 26px;
+      height: 26px;
+      margin: -2px 4px 0 0;
+    }
+    .china-2026-speakers {
+      min-height: 0;
+      margin: 0 0 14px;
+    }
+    .china-2026-speakers-row img {
+      width: 118px;
+      height: 118px;
+      margin-left: -28px;
     }
     .china-2026-speakers-row img:first-child {
       margin-left: 0;
     }
     .china-2026-title {
-      font-size: 24px;
+      margin-top: 4px;
+      font-size: 22px;
+      line-height: 1.3;
     }
-    .china-2026-presenter {
-      margin: 14px 0 28px;
-      font-size: 16px;
+    .china-2026-date {
+      margin-top: 12px;
+    }
+    .china-2026-date svg {
+      width: 22px;
+      height: 22px;
+      margin: 2px 8px 0 0;
     }
     .china-2026-date-text {
-      font-size: 16px;
+      font-size: 15px;
+    }
+    .china-2026-presenter {
+      margin: 12px 0 22px;
+      font-size: 15px;
+      line-height: 1.4;
     }
     .china-2026-footer {
       justify-content: center;
@@ -189,14 +252,29 @@
     .china-2026-btn {
       width: 100%;
       max-width: 100%;
-      box-sizing: border-box;
-      padding: 12px 18px;
+      padding: 12px 16px;
       font-size: 16px;
       justify-content: center;
     }
     .china-2026-btn svg {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 380px) {
+    .china-2026-speakers-row img {
+      width: 100px;
+      height: 100px;
+      margin-left: -24px;
+    }
+    .china-2026-title {
+      font-size: 20px;
+    }
+    .china-2026-presenter,
+    .china-2026-date-text {
+      font-size: 14px;
     }
   }
 </style>
