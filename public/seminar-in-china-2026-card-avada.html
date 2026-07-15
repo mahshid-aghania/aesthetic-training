@@ -1,0 +1,208 @@
+<!--
+  Avada-ready: paste into a "Code Block" / "Custom HTML" element.
+  No Tailwind required — all styles are inline / scoped below.
+-->
+<style>
+  .china-2026-card-wrap {
+    max-width: 420px;
+    margin: 0 auto 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+  .china-2026-card-wrap *,
+  .china-2026-card-wrap *::before,
+  .china-2026-card-wrap *::after {
+    box-sizing: border-box;
+  }
+  .china-2026-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 480px;
+    padding: 16px;
+    border-radius: 12px;
+    color: #ffffff;
+    background-color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
+      url("https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/02/Seminar-in-China-card.jpg");
+    background-position: left center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  .china-2026-card:hover {
+    box-shadow: 0 9px 20px rgb(0, 0, 0, 0.2);
+  }
+  .china-2026-callout {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+  .china-2026-callout svg {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: -2px 4px 0 0;
+    vertical-align: middle;
+    fill: #ffffff;
+  }
+  .china-2026-speakers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    margin: 0 0 8px;
+  }
+  .china-2026-speakers-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .china-2026-speakers-row img {
+    width: 104px;
+    height: 104px;
+    margin-left: -24px;
+    border-radius: 9999px;
+    object-fit: cover;
+    display: block;
+  }
+  .china-2026-speakers-row img:first-child {
+    margin-left: 0;
+  }
+  .china-2026-title {
+    margin: 8px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #ffffff;
+  }
+  .china-2026-date {
+    display: flex;
+    align-items: flex-start;
+    margin: 12px 0 0;
+  }
+  .china-2026-date svg {
+    width: 24px;
+    height: 24px;
+    margin: 4px 8px 0 0;
+    stroke: #ffffff;
+    flex-shrink: 0;
+  }
+  .china-2026-date-text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .china-2026-presenter {
+    margin: 12px 0 64px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+  }
+  .china-2026-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+  .china-2026-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 12px 6px 28px;
+    border: 0;
+    border-radius: 9999px;
+    background: #ffffff;
+    color: #dc4633;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none !important;
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.08);
+    transition: background-color 0.15s ease, color 0.15s ease;
+    cursor: pointer;
+  }
+  .china-2026-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: #dc4633;
+    transition: fill 0.15s ease;
+  }
+  .china-2026-btn:hover,
+  .china-2026-btn:focus {
+    background: #ab1368;
+    color: #ffffff;
+    text-decoration: none !important;
+  }
+  .china-2026-btn:hover svg,
+  .china-2026-btn:focus svg {
+    fill: #ffffff;
+  }
+  @media (max-width: 480px) {
+    .china-2026-speakers-row img {
+      width: 80px;
+      height: 80px;
+      margin-left: -20px;
+    }
+    .china-2026-speakers-row img:first-child {
+      margin-left: 0;
+    }
+    .china-2026-title {
+      font-size: 22px;
+    }
+    .china-2026-presenter,
+    .china-2026-date-text {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="china-2026-card-wrap">
+  <div class="china-2026-card">
+    <div class="china-2026-callout">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      Travel &amp; Learn
+    </div>
+
+    <div class="china-2026-speakers">
+      <div class="china-2026-speakers-row">
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/03/Maria-Colaiacovo.png" alt="Maria Colaiacovo" />
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2025/07/Chris-Swayze-1.jpg" alt="Chris Swayze" />
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/06/Matthew-Chuk-e1781117363760.jpg" alt="Matthew Chuk" />
+      </div>
+    </div>
+
+    <h2 class="china-2026-title">Seminar in China 2026</h2>
+
+    <div class="china-2026-date">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"></path>
+      </svg>
+      <p class="china-2026-date-text">Oct 9–20, 2026</p>
+    </div>
+
+    <div class="china-2026-presenter">
+      Speakers: Dr. Maria Colaiacovo, Dr. Chris Swayze and Dr. Matthew Chuk
+    </div>
+
+    <div class="china-2026-footer">
+      <a class="china-2026-btn" href="https://cde.dentistry.utoronto.ca/courses/china-2026/">
+        Learn More
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
+          <path d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
