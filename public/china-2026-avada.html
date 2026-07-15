@@ -1,0 +1,574 @@
+<!--
+  Avada-ready China 2026 course page
+  Paste into an Avada "Code Block" / "Custom HTML" element.
+
+  - No Tailwind dependency
+  - No Alpine/JS required (uses native <details> accordions)
+  - Mobile responsive
+-->
+<style>
+  .cde-china-page {
+    --cde-primary: #1E3765;
+    --cde-secondary: #007894;
+    --cde-purple: #6D247A;
+    --cde-fuchsia: #ab1368;
+    --cde-coolblue: #6FC7EA;
+    --cde-lightblue: #e9f3f7;
+    --cde-dark: #1F2937;
+    --cde-muted: #64748b;
+    --cde-border: #e2e8f0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
+    color: #0f172a;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+  }
+  .cde-china-page *,
+  .cde-china-page *::before,
+  .cde-china-page *::after {
+    box-sizing: border-box;
+  }
+  .cde-china-page img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .cde-china-page a {
+    color: var(--cde-secondary);
+  }
+  .cde-china-page p {
+    margin: 0 0 1rem;
+  }
+  .cde-china-page h1,
+  .cde-china-page h2,
+  .cde-china-page h3 {
+    margin: 0 0 0.75rem;
+    line-height: 1.25;
+    color: var(--cde-dark);
+  }
+
+  /* Header */
+  .cde-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 18px;
+    color: var(--cde-secondary);
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .cde-back:hover { text-decoration: underline; }
+  .cde-callout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 12px;
+    color: var(--cde-purple);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cde-callout svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--cde-purple);
+  }
+  .cde-title {
+    margin: 0 0 18px;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+  }
+  .cde-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .cde-speakers-line {
+    margin: 0;
+    font-size: clamp(16px, 2.4vw, 22px);
+    font-weight: 700;
+    color: #1e293b;
+    flex: 1 1 280px;
+  }
+  .cde-date-line {
+    margin: 0;
+    font-size: clamp(18px, 2.6vw, 28px);
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  /* Layout */
+  .cde-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .cde-hero-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    object-fit: cover;
+  }
+  .cde-note {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  /* Promo box */
+  .cde-promo {
+    background: var(--cde-lightblue);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .cde-promo h3 {
+    font-size: clamp(20px, 3vw, 28px);
+    margin-bottom: 14px;
+  }
+  .cde-promo-strong {
+    font-size: clamp(16px, 2.4vw, 22px);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .cde-contact {
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto 18px;
+    font-size: 16px;
+  }
+  .cde-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .cde-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--cde-secondary);
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 0.15s ease;
+  }
+  .cde-btn:hover {
+    background: var(--cde-fuchsia);
+    color: #fff !important;
+  }
+
+  /* Accordions (native details) */
+  .cde-acc {
+    margin: 0 0 16px;
+    border: 1px solid var(--cde-border);
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    background: #fff;
+    overflow: hidden;
+  }
+  .cde-acc > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 700;
+    color: var(--cde-dark);
+    background: #fff;
+  }
+  .cde-acc > summary::-webkit-details-marker { display: none; }
+  .cde-acc > summary::after {
+    content: "▾";
+    font-size: 18px;
+    color: #64748b;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .cde-acc[open] > summary {
+    background: #f3f4f6;
+  }
+  .cde-acc[open] > summary::after {
+    transform: rotate(180deg);
+  }
+  .cde-acc-body {
+    padding: 8px 18px 18px;
+    font-size: 16px;
+    color: #1f2937;
+  }
+  .cde-acc-body p:last-child { margin-bottom: 0; }
+
+  /* Courses */
+  .cde-section-title {
+    margin: 28px 0 12px;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+  }
+  .cde-course {
+    margin: 0 0 28px;
+  }
+  .cde-course h3 {
+    font-size: clamp(18px, 2.5vw, 24px);
+    margin-bottom: 8px;
+  }
+  .cde-course-meta {
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  /* Presenters */
+  .cde-presenter {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 0 0 16px;
+    padding: 18px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  }
+  .cde-presenter img {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .cde-presenter h3 {
+    margin: 0 0 6px;
+    font-size: clamp(20px, 2.8vw, 28px);
+  }
+  .cde-presenter .creds {
+    margin: 0 0 8px;
+    color: var(--cde-primary);
+    font-size: 14px;
+  }
+  .cde-presenter .bio {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #111827;
+  }
+
+  /* Sponsorship */
+  .cde-sponsor {
+    margin-top: 28px;
+    padding-bottom: 12px;
+  }
+  .cde-sponsor-logo {
+    width: 201px;
+    max-width: 70%;
+    margin: 24px auto 0;
+  }
+
+  /* Sidebar / Course Details */
+  .cde-sidebar-card {
+    border: 1px solid var(--cde-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
+  .cde-sidebar-card h3 {
+    margin: 0;
+    padding: 18px 20px;
+    background: #f3f4f6;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .cde-sidebar-body {
+    padding: 18px 20px 20px;
+  }
+  .cde-detail {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .cde-detail svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--cde-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cde-detail-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cde-primary);
+    margin-bottom: 4px;
+  }
+  .cde-detail-value {
+    font-size: 16px;
+    color: var(--cde-dark);
+  }
+
+  /* Bottom banner */
+  .cde-bottom {
+    margin-top: 36px;
+    padding: 36px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(111, 199, 234, 0.85), rgba(111, 199, 234, 0.35), rgba(111, 199, 234, 0.85));
+    text-align: center;
+  }
+  .cde-bottom img {
+    width: 220px;
+    max-width: 70%;
+    margin: 0 auto 18px;
+  }
+  .cde-bottom h3 {
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--cde-primary);
+    margin-bottom: 18px;
+  }
+
+  /* Desktop two-column */
+  @media (min-width: 960px) {
+    .cde-china-page {
+      padding: 28px 24px 40px;
+    }
+    .cde-layout {
+      grid-template-columns: minmax(0, 1fr) 320px;
+      align-items: start;
+      gap: 36px;
+    }
+    .cde-sidebar {
+      position: sticky;
+      top: 24px;
+    }
+    .cde-presenter img {
+      width: 120px;
+      height: 120px;
+    }
+    .cde-presenter .bio {
+      font-size: 15px;
+    }
+  }
+
+  /* Mobile refinements */
+  @media (max-width: 640px) {
+    .cde-china-page {
+      padding: 12px 10px 28px;
+    }
+    .cde-promo {
+      padding: 18px 14px;
+    }
+    .cde-btns {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .cde-btn {
+      width: 100%;
+      text-align: center;
+    }
+    .cde-meta {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cde-presenter {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cde-presenter .creds,
+    .cde-presenter .bio {
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="cde-china-page">
+  <a class="cde-back" href="https://cde.dentistry.utoronto.ca/upcoming-courses/">
+    ← Upcoming Courses
+  </a>
+
+  <div class="cde-callout">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+    Travel &amp; Learn
+  </div>
+
+  <h1 class="cde-title">Seminar in China 2026</h1>
+
+  <div class="cde-meta">
+    <p class="cde-speakers-line">Speakers: Dr. Maria Colaiacovo, Dr. Chris Swayze and Dr. Matthew Chuk</p>
+    <p class="cde-date-line">October 2026</p>
+  </div>
+
+  <div class="cde-layout">
+    <div class="cde-main">
+      <img
+        class="cde-hero-img"
+        src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/02/Seminar-in-China-e1771621084509.jpg"
+        alt="Seminar in China 2026"
+      />
+
+      <p class="cde-note">
+        In order to register for this course package, you must first book a travel package through our partner travel agency. After booking a travel package, you will receive an email from the travel agency containing the link to register for this course.
+      </p>
+
+      <div class="cde-promo">
+        <h3>Earn CE Credits while<br />Exploring the Majesty of the Great Wall</h3>
+        <p class="cde-promo-strong">
+          12 DAYS / 11 NIGHTS AT LUXURY 5 STAR HOTELS<br />
+          Shanghai – Suzhou – Hangzhou – Beijing – Xian
+        </p>
+        <div class="cde-contact">
+          <strong>Jurina Chan</strong><br />
+          <strong>U Travel &amp; Tours Inc.</strong><br />
+          Phone: 416-597-1012<br />
+          jurina@utraveltours.com
+        </div>
+        <div class="cde-btns">
+          <a class="cde-btn" href="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/06/China-Update-Flyer-June-11.png" target="_blank" rel="noopener noreferrer">View Travel Package Information</a>
+          <a class="cde-btn" href="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/05/U-of-T-CDE-China-Land-Tour-%E2%80%93-Detailed-Itinerary.pdf" target="_blank" rel="noopener noreferrer">View Tour Itinerary</a>
+          <a class="cde-btn" href="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/06/Chongqing-4-days-3-nights-Optional-Tour-Oct-20-to-23.pdf" target="_blank" rel="noopener noreferrer">Chongqing Optional Tour</a>
+        </div>
+      </div>
+
+      <details class="cde-acc">
+        <summary>Certificate</summary>
+        <div class="cde-acc-body">
+          <p>After completing this course, a certificate of completion that indicates the number of Continuing Education (CE) points earned will be sent to you within 7-10 days by email.</p>
+        </div>
+      </details>
+
+      <details class="cde-acc">
+        <summary>Cancellation Policy</summary>
+        <div class="cde-acc-body">
+          <p><strong>The following cancellation policy applies to the CE course fee only. For the cancellation policy of the cruise and travel package, please contact the partner travel agency for this course.</strong></p>
+          <p>Cancellations made more than 10 calendar days before the course start date will receive a full refund. No refunds will be issued for cancellations made within 10 calendar days of the course start date.</p>
+          <p>Refunds will not be issued for registrants who do not attend, regardless of reason for absence.</p>
+          <p>Registrations cannot be transferred to another individual.</p>
+          <p>To cancel your registration, please follow the link and instructions provided in the registration confirmation email. If you are eligible for a refund, the refund will be processed automatically upon cancellation. Please allow 3-5 business days for the transaction to be completed.</p>
+          <p><em>Continuing Dental Education (University of Toronto) reserves the right to cancel courses due to insufficient registrations, instructor cancellation, or unforeseen circumstances beyond our control. In the event of course cancellation, a full refund will be issued, and registrants will be notified promptly. We are not liable for any associated losses, damages, or expenses, including travel and accommodations.</em></p>
+        </div>
+      </details>
+
+      <h2 class="cde-section-title">Course Package Description</h2>
+      <p>This Travel &amp; Learn course package includes the following three courses.</p>
+
+      <div class="cde-course">
+        <h3>1. My Office Burnt Down. Are You Prepared?</h3>
+        <p class="cde-course-meta">Speaker: Dr. Maria Colaiacovo<br />3 CE points</p>
+        <details class="cde-acc">
+          <summary>Course Description</summary>
+          <div class="cde-acc-body">
+            <p>A fire in a dental office can have devastating consequences, including interruption of patient care, damage to specialized equipment, loss of records, regulatory challenges and significant financial impact. This course is designed to provide dentist and practice owners with the knowledge and tools necessary to proactively prepare for, respond to and recover from a dental office fire or other catastrophic event.</p>
+            <p>Participants will gain an understanding of fire prevention strategies, emergency preparedness planning and staff training. The course will also examine the critical role of insurance to protect your dental practice including property coverage, business interruption and equipment replacement.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="cde-course">
+        <h3>2. Navigating Insurance Company Audits, Complaints, and Investigations</h3>
+        <p class="cde-course-meta">Speaker: Dr. Chris Swayze<br />3 CE points</p>
+      </div>
+
+      <div class="cde-course">
+        <h3>3. An Introduction to Dental 3D Printing</h3>
+        <p class="cde-course-meta">Speaker: Dr. Matthew Chuk<br />1 CE points</p>
+        <details class="cde-acc">
+          <summary>Course Description</summary>
+          <div class="cde-acc-body">
+            <p>Dental 3D printing is a cutting-edge technology that allows for the creation of custom dental solutions with high precision. Using digital models, it can produce crowns, bridges, implants, dentures and orthodontic devices. This process enhances treatment accuracy, reduces production time and minimizes waste. It enables faster, more personalized care for patients, improving both comfort and functionality. Dental 3D printing is revolutionizing the dental industry, making procedures more efficient and cost-effective, a benefit to both the patient and the practice. This course will introduce the basic concepts of 3D printing and some easy, cost-effective applications such as the fabrication of study models and bruxism appliances. A live demonstration of capturing patient data, designing dental appliances and getting it ready for 3D printing will be performed.</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 class="cde-section-title">Presenters</h2>
+
+      <div class="cde-presenter">
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/03/Maria-Colaiacovo.png" alt="Dr. Maria Colaiacovo" />
+        <div>
+          <h3>Maria Colaiacovo</h3>
+          <p class="bio">Dr. Maria Colaiacovo completed her Bachelor of Science at Queen’s University. She continued her studies at The University of Toronto, Faculty of Dentistry, where she graduated with Honours and was especially recognized for her achievements in both restorative and preventive dentistry. Upon graduation, she completed the hospital dental residency program at Mount Sinai Hospital in Toronto. She continues to maintain her hospital privileges as a part-time special care dentist at Mount Sinai hospital and is currently the Deputy-in-Chief and Co-Director of the Hospital Dental Residency Program. Maria also teaches and lectures students at the Faculty of Dentistry, University of Toronto.</p>
+        </div>
+      </div>
+
+      <div class="cde-presenter">
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2025/07/Chris-Swayze-1.jpg" alt="Dr. Chris Swayze" />
+        <div>
+          <h3>Chris Swayze</h3>
+          <p class="creds">MBA, DDS, HBSc<br />Director of Continuing Dental Education at the Faculty of Dentistry, University of Toronto</p>
+          <p class="bio">With an extensive background in dental regulation and professional development, Dr. Swayze oversees the Continuing Dental Education program at the Faculty of Dentistry. As well as being an expert in continuing education, Dr. Swayze is also an expert in infection prevention and control and involved in the development of national standards and guidelines. He is a member of the CSA Technical Committee on Medical Device Reprocessing (Z314) [Z262 TC], setting the national standard on reprocessing, and a member of IPAC Canada.</p>
+        </div>
+      </div>
+
+      <div class="cde-presenter">
+        <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2026/06/Matthew-Chuk-e1781117363760.jpg" alt="Dr. Matthew Chuk" />
+        <div>
+          <h3>Matthew Chuk</h3>
+          <p class="creds">Hons B.Sc., M.Sc., D.D.S.</p>
+          <p class="bio">Dr. Matthew Chuk graduated from the University of Toronto with an Honours in Bachelor of Science in Human Biology, Minor in Psychology and Masters of Science in Molecular Biology. After publishing several well-reviewed papers and a textbook, Dr. Chuk graduated from the University of Toronto Faculty of Dentistry. He has won the prestigious Xi Psi Phi Bone and Devo Award and the American General Dentistry Association Award. He enjoys all aspects of dentistry, employing the newest cutting-edge technologies to better help his patients. In his free time, he enjoys amateur photography, pickleball, and spending time with his family and friends.</p>
+        </div>
+      </div>
+
+      <div class="cde-sponsor">
+        <h2 class="cde-section-title">Sponsorship</h2>
+        <p>The University of Toronto, Faculty of Dentistry appreciates the unrestricted educational grants provided for this course by Travel Plus.</p>
+        <img class="cde-sponsor-logo" src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2024/08/travelplus.jpg" alt="Travel Plus" />
+      </div>
+    </div>
+
+    <aside class="cde-sidebar">
+      <div class="cde-sidebar-card">
+        <h3>Course Details</h3>
+        <div class="cde-sidebar-body">
+          <div class="cde-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"></path>
+            </svg>
+            <div>
+              <div class="cde-detail-label">Date</div>
+              <div class="cde-detail-value">October 9–20, 2026</div>
+            </div>
+          </div>
+
+          <div class="cde-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+            </svg>
+            <div>
+              <div class="cde-detail-label">Cost</div>
+              <div class="cde-detail-value">$1,399</div>
+            </div>
+          </div>
+
+          <div class="cde-detail">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+            </svg>
+            <div>
+              <div class="cde-detail-label">CE Points</div>
+              <div class="cde-detail-value">9</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cde-bottom">
+    <img src="https://cde.dentistry.utoronto.ca/wp-content/uploads/2024/08/travelplus.jpg" alt="Travel Plus" />
+    <h3>
+      Category 1 CORE courses available online<br />
+      24 hours a day, 7 days a week, 365 days of the year
+    </h3>
+    <a class="cde-btn" href="https://utooth.ca" target="_blank" rel="noopener noreferrer">Visit utooth.ca</a>
+  </div>
+</div>
