@@ -1,0 +1,413 @@
+/*
+  ============================================================
+  AVADA CUSTOM CSS
+  Go to: Avada > Options > Custom CSS
+  Paste ALL of this CSS there first.
+  ============================================================
+*/
+
+#avada-china-2026 {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto 40px !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+  color: #0f172a !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+
+#avada-china-2026 *,
+#avada-china-2026 *::before,
+#avada-china-2026 *::after {
+  box-sizing: border-box !important;
+}
+
+#avada-china-2026 img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#avada-china-2026 a {
+  color: #007894 !important;
+  text-decoration: none !important;
+}
+
+#avada-china-2026 p {
+  margin: 0 0 16px !important;
+  padding: 0 !important;
+  color: #0f172a !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+#avada-china-2026 h1,
+#avada-china-2026 h2,
+#avada-china-2026 h3 {
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  line-height: 1.25 !important;
+  color: #1F2937 !important;
+  font-weight: 800 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+#avada-china-2026 .ac-back {
+  display: inline-block !important;
+  margin: 0 0 18px !important;
+  color: #007894 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+#avada-china-2026 .ac-callout {
+  display: block !important;
+  margin: 0 0 12px !important;
+  color: #6D247A !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+#avada-china-2026 .ac-title {
+  margin: 0 0 18px !important;
+  font-size: 36px !important;
+  font-weight: 800 !important;
+}
+
+#avada-china-2026 .ac-meta {
+  display: block !important;
+  margin: 0 0 24px !important;
+}
+
+#avada-china-2026 .ac-speakers-line {
+  margin: 0 0 8px !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+#avada-china-2026 .ac-date-line {
+  margin: 0 !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+#avada-china-2026 .ac-layout {
+  display: block !important;
+  width: 100% !important;
+}
+
+#avada-china-2026 .ac-main {
+  display: block !important;
+  width: 100% !important;
+  vertical-align: top !important;
+}
+
+#avada-china-2026 .ac-sidebar {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 28px !important;
+  vertical-align: top !important;
+}
+
+#avada-china-2026 .ac-hero-img {
+  width: 100% !important;
+  border-radius: 12px !important;
+  margin: 0 0 24px !important;
+  object-fit: cover !important;
+}
+
+#avada-china-2026 .ac-promo {
+  background: #e9f3f7 !important;
+  border-radius: 12px !important;
+  padding: 24px 20px !important;
+  margin: 0 0 24px !important;
+  text-align: center !important;
+}
+
+#avada-china-2026 .ac-promo h3 {
+  font-size: 24px !important;
+  margin: 0 0 14px !important;
+  text-align: center !important;
+}
+
+#avada-china-2026 .ac-promo-strong {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin: 0 0 18px !important;
+  text-align: center !important;
+}
+
+#avada-china-2026 .ac-contact {
+  text-align: left !important;
+  max-width: 420px !important;
+  margin: 0 auto 18px !important;
+  font-size: 16px !important;
+}
+
+#avada-china-2026 .ac-btns {
+  display: block !important;
+  text-align: center !important;
+}
+
+#avada-china-2026 .ac-btn {
+  display: inline-block !important;
+  margin: 6px !important;
+  padding: 12px 18px !important;
+  border-radius: 999px !important;
+  background: #007894 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#avada-china-2026 .ac-btn:hover,
+#avada-china-2026 .ac-btn:focus {
+  background: #ab1368 !important;
+  color: #ffffff !important;
+}
+
+#avada-china-2026 .ac-box {
+  margin: 0 0 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+  background: #fff !important;
+  overflow: hidden !important;
+}
+
+#avada-china-2026 .ac-box-title {
+  margin: 0 !important;
+  padding: 14px 18px !important;
+  background: #f3f4f6 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #1F2937 !important;
+}
+
+#avada-china-2026 .ac-box-body {
+  padding: 16px 18px 18px !important;
+  font-size: 16px !important;
+  color: #1f2937 !important;
+}
+
+#avada-china-2026 .ac-section-title {
+  margin: 28px 0 12px !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+}
+
+#avada-china-2026 .ac-course {
+  margin: 0 0 28px !important;
+}
+
+#avada-china-2026 .ac-course h3 {
+  font-size: 22px !important;
+  margin: 0 0 8px !important;
+}
+
+#avada-china-2026 .ac-course-meta {
+  margin: 0 0 12px !important;
+  font-weight: 700 !important;
+}
+
+#avada-china-2026 .ac-presenter {
+  display: block !important;
+  margin: 0 0 16px !important;
+  padding: 18px !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+  overflow: hidden !important;
+}
+
+#avada-china-2026 .ac-presenter img {
+  float: left !important;
+  width: 96px !important;
+  height: 96px !important;
+  margin: 0 16px 12px 0 !important;
+  border-radius: 999px !important;
+  object-fit: cover !important;
+}
+
+#avada-china-2026 .ac-presenter h3 {
+  margin: 0 0 6px !important;
+  font-size: 24px !important;
+}
+
+#avada-china-2026 .ac-creds {
+  margin: 0 0 8px !important;
+  color: #1E3765 !important;
+  font-size: 14px !important;
+}
+
+#avada-china-2026 .ac-bio {
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  color: #111827 !important;
+  overflow: hidden !important;
+}
+
+#avada-china-2026 .ac-clear {
+  clear: both !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+#avada-china-2026 .ac-sponsor {
+  margin-top: 28px !important;
+  padding-bottom: 12px !important;
+}
+
+#avada-china-2026 .ac-sponsor-logo {
+  width: 201px !important;
+  max-width: 70% !important;
+  margin: 24px auto 0 !important;
+}
+
+#avada-china-2026 .ac-sidebar-card {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  background: #fff !important;
+}
+
+#avada-china-2026 .ac-sidebar-card > h3 {
+  margin: 0 !important;
+  padding: 18px 20px !important;
+  background: #f3f4f6 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+}
+
+#avada-china-2026 .ac-sidebar-body {
+  padding: 18px 20px 20px !important;
+}
+
+#avada-china-2026 .ac-detail {
+  margin: 0 0 18px !important;
+}
+
+#avada-china-2026 .ac-detail:last-child {
+  margin-bottom: 0 !important;
+}
+
+#avada-china-2026 .ac-detail-label {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #1E3765 !important;
+  margin: 0 0 4px !important;
+}
+
+#avada-china-2026 .ac-detail-value {
+  font-size: 16px !important;
+  color: #1F2937 !important;
+  margin: 0 !important;
+}
+
+#avada-china-2026 .ac-bottom {
+  margin-top: 36px !important;
+  padding: 36px 20px !important;
+  border-radius: 12px !important;
+  background: #bfe8f6 !important;
+  text-align: center !important;
+}
+
+#avada-china-2026 .ac-bottom img {
+  width: 220px !important;
+  max-width: 70% !important;
+  margin: 0 auto 18px !important;
+}
+
+#avada-china-2026 .ac-bottom h3 {
+  font-size: 18px !important;
+  color: #1E3765 !important;
+  margin: 0 0 18px !important;
+  text-align: center !important;
+}
+
+/* Desktop */
+@media screen and (min-width: 960px) {
+  #avada-china-2026 {
+    padding: 28px 24px 40px !important;
+  }
+
+  #avada-china-2026 .ac-title {
+    font-size: 48px !important;
+  }
+
+  #avada-china-2026 .ac-main {
+    display: inline-block !important;
+    width: 66% !important;
+    padding-right: 28px !important;
+  }
+
+  #avada-china-2026 .ac-sidebar {
+    display: inline-block !important;
+    width: 32% !important;
+    margin-top: 0 !important;
+  }
+
+  #avada-china-2026 .ac-presenter img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  #avada-china-2026 .ac-bio {
+    font-size: 15px !important;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 959px) {
+  #avada-china-2026 {
+    padding: 12px 10px 28px !important;
+  }
+
+  #avada-china-2026 .ac-title {
+    font-size: 28px !important;
+  }
+
+  #avada-china-2026 .ac-speakers-line,
+  #avada-china-2026 .ac-date-line {
+    font-size: 16px !important;
+  }
+
+  #avada-china-2026 .ac-btn {
+    display: block !important;
+    width: 100% !important;
+    margin: 8px 0 !important;
+    text-align: center !important;
+  }
+
+  #avada-china-2026 .ac-presenter {
+    text-align: center !important;
+  }
+
+  #avada-china-2026 .ac-presenter img {
+    float: none !important;
+    margin: 0 auto 14px !important;
+  }
+
+  #avada-china-2026 .ac-presenter h3,
+  #avada-china-2026 .ac-creds,
+  #avada-china-2026 .ac-bio {
+    text-align: center !important;
+  }
+}
