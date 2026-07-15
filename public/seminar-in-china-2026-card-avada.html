@@ -129,35 +129,46 @@
     margin-top: auto;
   }
   .china-2026-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px;
     white-space: nowrap;
-    padding: 12px 18px 12px 30px;
+    padding: 12px 20px;
     border: 0;
     border-radius: 9999px;
     background: #ffffff;
-    color: #dc4633;
+    color: #dc4633 !important;
     font-size: 18px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1 !important;
     text-decoration: none !important;
     box-shadow: 0 1px 2px rgb(0, 0, 0, 0.08);
     transition: background-color 0.15s ease, color 0.15s ease;
     cursor: pointer;
   }
+  .china-2026-btn-label {
+    display: inline-block;
+    line-height: 1 !important;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 0;
+  }
   .china-2026-btn svg {
-    width: 30px;
-    height: 30px;
+    display: block;
+    width: 22px;
+    height: 22px;
     fill: #dc4633;
     flex-shrink: 0;
+    margin: 0;
+    padding: 0;
     transition: fill 0.15s ease;
   }
   .china-2026-btn:hover,
   .china-2026-btn:focus {
     background: #ab1368;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none !important;
   }
   .china-2026-btn:hover svg,
@@ -252,13 +263,14 @@
     .china-2026-btn {
       width: 100%;
       max-width: 100%;
-      padding: 12px 16px;
+      padding: 14px 16px;
       font-size: 16px;
+      gap: 6px;
       justify-content: center;
     }
     .china-2026-btn svg {
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -322,9 +334,9 @@
     <div class="china-2026-footer">
       <!-- Update href to your course/registration page -->
       <a class="china-2026-btn" href="#">
-        Learn More
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true">
-          <path d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"></path>
+        <span class="china-2026-btn-label">Learn More</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z"></path>
         </svg>
       </a>
     </div>
