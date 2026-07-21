@@ -60,22 +60,27 @@
     max-width: 680px;
     margin: 0;
     overflow-x: visible;
+    border: 1px solid #c5ccd8;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
 
   .afk-mock-schedule {
     width: 100%;
     max-width: 680px;
     border-collapse: collapse;
+    border-spacing: 0;
     table-layout: fixed;
     text-align: left;
     font-size: 13px;
     line-height: 1.35;
+    border: 0;
   }
 
   .afk-mock-schedule th,
   .afk-mock-schedule td {
     padding: 8px 6px;
-    border: 1px solid #d8dde6;
+    border: 1px solid #c5ccd8;
     vertical-align: top;
     word-wrap: break-word;
     overflow-wrap: anywhere;
@@ -86,6 +91,7 @@
     color: #fff;
     font-weight: 700;
     font-size: 12px;
+    border-color: #0f1f3d;
   }
 
   .afk-mock-schedule tbody tr:nth-child(even) {
@@ -115,6 +121,11 @@
       width: 100%;
     }
 
+    .afk-mock-schedule-wrap {
+      border: 0;
+      border-radius: 0;
+    }
+
     .afk-mock-schedule {
       border: 0;
       table-layout: auto;
@@ -125,12 +136,12 @@
     }
 
     .afk-mock-schedule tbody tr {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       padding: 10px 12px;
-      border: 1px solid #d8dde6;
-      border-radius: 8px;
+      border: 1px solid #c5ccd8;
+      border-radius: 4px;
       background: #fff !important;
-      box-shadow: 0 1px 3px rgba(15, 31, 61, 0.06);
+      box-shadow: none;
     }
 
     .afk-mock-schedule td {
@@ -139,7 +150,7 @@
       gap: 6px 10px;
       padding: 6px 0;
       border: 0;
-      border-bottom: 1px solid #eef1f5;
+      border-bottom: 1px solid #e2e6ee;
       font-size: 14px;
     }
 
