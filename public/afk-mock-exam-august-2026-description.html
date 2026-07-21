@@ -1,0 +1,291 @@
+<!--
+  Paste into WooCommerce product description
+  (AFK Mock Exam – August 2026)
+
+  - Narrower schedule (max-width ~680px)
+  - No 950px min-width horizontal stretch
+  - Mobile: stacked cards, no sideways scroll
+-->
+
+<style>
+  .afk-mock-desc {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 0 1.5em;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .afk-mock-desc blockquote {
+    margin: 0 0 1.25em;
+    padding: 12px 16px;
+    border-left: 4px solid #0f1f3d;
+    background: #f5f7fb;
+  }
+
+  .afk-mock-desc h3 {
+    margin: 1.4em 0 0.6em;
+    color: #0f1f3d;
+    font-size: 1.25em;
+  }
+
+  .afk-mock-desc h4 {
+    margin: 1.1em 0 0.5em;
+    color: #0f1f3d;
+    font-size: 1.05em;
+  }
+
+  .afk-mock-desc ul {
+    margin: 0 0 1em;
+    padding-left: 1.2em;
+  }
+
+  .afk-mock-desc li {
+    margin-bottom: 0.45em;
+  }
+
+  .afk-mock-desc .afk-hl {
+    color: #c00000;
+    font-weight: 700;
+  }
+
+  .afk-mock-desc .afk-note {
+    margin: 0.75em 0 1.25em;
+  }
+
+  /* Schedule: compact table on desktop / tablet */
+  .afk-mock-schedule-wrap {
+    width: 100%;
+    max-width: 680px;
+    margin: 0;
+    overflow-x: visible;
+  }
+
+  .afk-mock-schedule {
+    width: 100%;
+    max-width: 680px;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .afk-mock-schedule th,
+  .afk-mock-schedule td {
+    padding: 8px 6px;
+    border: 1px solid #d8dde6;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .afk-mock-schedule thead th {
+    background: #0f1f3d;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .afk-mock-schedule tbody tr:nth-child(even) {
+    background: #f7f7f7;
+  }
+
+  .afk-mock-schedule .col-date { width: 18%; }
+  .afk-mock-schedule .col-day { width: 12%; }
+  .afk-mock-schedule .col-time { width: 16%; }
+  .afk-mock-schedule .col-session { width: 18%; }
+  .afk-mock-schedule .col-instructor { width: 16%; }
+  .afk-mock-schedule .col-format { width: 20%; }
+
+  /* Mobile: card rows — no horizontal scroll */
+  @media screen and (max-width: 640px) {
+    .afk-mock-desc {
+      font-size: 15px;
+    }
+
+    .afk-mock-schedule,
+    .afk-mock-schedule thead,
+    .afk-mock-schedule tbody,
+    .afk-mock-schedule th,
+    .afk-mock-schedule td,
+    .afk-mock-schedule tr {
+      display: block;
+      width: 100%;
+    }
+
+    .afk-mock-schedule {
+      border: 0;
+      table-layout: auto;
+    }
+
+    .afk-mock-schedule thead {
+      display: none;
+    }
+
+    .afk-mock-schedule tbody tr {
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border: 1px solid #d8dde6;
+      border-radius: 8px;
+      background: #fff !important;
+      box-shadow: 0 1px 3px rgba(15, 31, 61, 0.06);
+    }
+
+    .afk-mock-schedule td {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 6px 10px;
+      padding: 6px 0;
+      border: 0;
+      border-bottom: 1px solid #eef1f5;
+      font-size: 14px;
+    }
+
+    .afk-mock-schedule td:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .afk-mock-schedule td:first-child {
+      padding-top: 0;
+    }
+
+    .afk-mock-schedule td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: #0f1f3d;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+  }
+</style>
+
+<div class="afk-mock-desc">
+  <blockquote>
+    Enroll for AFK mock exams to maximize your chances and receive a complete review before your exam. Each exam includes <strong>2 days of discussions</strong>, during which all questions will be discussed in detail.
+  </blockquote>
+
+  <h3>Mock Exam Format</h3>
+
+  <p>
+    All remaining mock exams are conducted online, with live online discussion sessions following each exam.
+  </p>
+
+  <h4>Exception – Mock Exam 3 (July 24–26)</h4>
+
+  <p>For Mock Exam 3, you may choose one of the following formats:</p>
+
+  <ul>
+    <li>
+      <strong>Option 1:</strong>
+      <span class="afk-hl">Online mock exam</span> +
+      <span class="afk-hl">Online (Pre-recorded) discussion</span>
+    </li>
+    <li>
+      <strong>Option 2:</strong>
+      <span class="afk-hl">In-person mock exam</span> +
+      <span class="afk-hl">In-person (Live) discussion</span>
+    </li>
+    <li>
+      After completing your registration, simply reply to your confirmation email and let us know which option you prefer.
+    </li>
+  </ul>
+
+  <p class="afk-note">
+    <strong>*No recording will be provided if you miss any of the discussion sessions.</strong>
+  </p>
+
+  <h3>Remaining Mock Exam Schedule</h3>
+
+  <div class="afk-mock-schedule-wrap">
+    <table class="afk-mock-schedule">
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-day">Day</th>
+          <th class="col-time">Time</th>
+          <th class="col-session">Session</th>
+          <th class="col-instructor">Instructor</th>
+          <th class="col-format">Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Date">July 24, 2026</td>
+          <td data-label="Day">Friday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Full Mock Exam 3</td>
+          <td data-label="Instructor">Exam Admin</td>
+          <td data-label="Format">In-person or Online</td>
+        </tr>
+        <tr>
+          <td data-label="Date">July 25, 2026</td>
+          <td data-label="Day">Saturday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 3-1</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">In-person (Live) or Online (Pre-recorded)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">July 26, 2026</td>
+          <td data-label="Day">Sunday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 3-2</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">In-person (Live) or Online (Pre-recorded)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">July 31, 2026</td>
+          <td data-label="Day">Friday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Full Mock Exam 4</td>
+          <td data-label="Instructor">Exam Administration</td>
+          <td data-label="Format">Online</td>
+        </tr>
+        <tr>
+          <td data-label="Date">August 1, 2026</td>
+          <td data-label="Day">Saturday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 4-1</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">Online (Live)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">August 2, 2026</td>
+          <td data-label="Day">Sunday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 4-2</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">Online (Live)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">August 4, 2026</td>
+          <td data-label="Day">Tuesday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Full Mock Exam 5</td>
+          <td data-label="Instructor">Exam Administration</td>
+          <td data-label="Format">Online</td>
+        </tr>
+        <tr>
+          <td data-label="Date">August 5, 2026</td>
+          <td data-label="Day">Wednesday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 5-1</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">Online (Live)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">August 6, 2026</td>
+          <td data-label="Day">Thursday</td>
+          <td data-label="Time">10:00 AM–3:00 PM</td>
+          <td data-label="Session">Discussion 5-2</td>
+          <td data-label="Instructor">Dr. Mehdi</td>
+          <td data-label="Format">Online (Live)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
