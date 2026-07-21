@@ -1,0 +1,297 @@
+<!--
+  Paste into WooCommerce product description
+  (AFK Mock Exam – August 2026)
+
+  Borders are INLINE so Avada cannot strip them.
+  Keep the <style> block for the narrow layout + mobile cards.
+-->
+
+<style>
+  .afk-mock-desc {
+    max-width: 680px !important;
+    width: 100% !important;
+    margin: 0 0 1.5em !important;
+    color: #1a1a1a !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+
+  .afk-mock-desc blockquote {
+    margin: 0 0 1.25em !important;
+    padding: 12px 16px !important;
+    border-left: 4px solid #0f1f3d !important;
+    background: #f5f7fb !important;
+  }
+
+  .afk-mock-desc h3 {
+    margin: 1.4em 0 0.6em !important;
+    color: #0f1f3d !important;
+    font-size: 1.25em !important;
+  }
+
+  .afk-mock-desc h4 {
+    margin: 1.1em 0 0.5em !important;
+    color: #0f1f3d !important;
+    font-size: 1.05em !important;
+  }
+
+  .afk-mock-desc ul {
+    margin: 0 0 1em !important;
+    padding-left: 1.2em !important;
+  }
+
+  .afk-mock-desc li {
+    margin-bottom: 0.45em !important;
+  }
+
+  .afk-mock-desc .afk-hl {
+    color: #c00000 !important;
+    font-weight: 700 !important;
+  }
+
+  .afk-mock-desc .afk-note {
+    margin: 0.75em 0 1.25em !important;
+  }
+
+  .afk-mock-desc .afk-mock-schedule-wrap {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 !important;
+    overflow-x: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  .afk-mock-desc table.afk-mock-schedule {
+    width: 100% !important;
+    max-width: 680px !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;
+    text-align: left !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    border: 1px solid #c5ccd8 !important;
+  }
+
+  .afk-mock-desc table.afk-mock-schedule th,
+  .afk-mock-desc table.afk-mock-schedule td {
+    padding: 8px 6px !important;
+    border: 1px solid #c5ccd8 !important;
+    vertical-align: top !important;
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    background-clip: padding-box !important;
+  }
+
+  .afk-mock-desc table.afk-mock-schedule thead th {
+    background-color: #0f1f3d !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    border: 1px solid #0f1f3d !important;
+  }
+
+  .afk-mock-desc table.afk-mock-schedule tbody tr:nth-child(even) td {
+    background-color: #f7f7f7 !important;
+  }
+
+  .afk-mock-desc table.afk-mock-schedule .col-date { width: 18% !important; }
+  .afk-mock-desc table.afk-mock-schedule .col-day { width: 12% !important; }
+  .afk-mock-desc table.afk-mock-schedule .col-time { width: 16% !important; }
+  .afk-mock-desc table.afk-mock-schedule .col-session { width: 18% !important; }
+  .afk-mock-desc table.afk-mock-schedule .col-instructor { width: 16% !important; }
+  .afk-mock-desc table.afk-mock-schedule .col-format { width: 20% !important; }
+
+  @media screen and (max-width: 640px) {
+    .afk-mock-desc {
+      font-size: 15px !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule,
+    .afk-mock-desc table.afk-mock-schedule thead,
+    .afk-mock-desc table.afk-mock-schedule tbody,
+    .afk-mock-desc table.afk-mock-schedule th,
+    .afk-mock-desc table.afk-mock-schedule td,
+    .afk-mock-desc table.afk-mock-schedule tr {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule {
+      border: 0 !important;
+      table-layout: auto !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule thead {
+      display: none !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule tbody tr {
+      margin: 0 0 10px !important;
+      padding: 10px 12px !important;
+      border: 1px solid #c5ccd8 !important;
+      border-radius: 4px !important;
+      background: #fff !important;
+      box-shadow: none !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule tbody tr:nth-child(even) td {
+      background-color: transparent !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule td {
+      display: grid !important;
+      grid-template-columns: 96px 1fr !important;
+      gap: 6px 10px !important;
+      padding: 6px 0 !important;
+      border: 0 !important;
+      border-bottom: 1px solid #e2e6ee !important;
+      font-size: 14px !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule td:last-child {
+      border-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule td:first-child {
+      padding-top: 0 !important;
+    }
+
+    .afk-mock-desc table.afk-mock-schedule td::before {
+      content: attr(data-label);
+      font-weight: 700 !important;
+      color: #0f1f3d !important;
+      font-size: 12px !important;
+      letter-spacing: 0.02em !important;
+      text-transform: uppercase !important;
+    }
+  }
+</style>
+
+<div class="afk-mock-desc">
+  <blockquote>
+    Enroll for AFK mock exams to maximize your chances and receive a complete review before your exam. Each exam includes <strong>2 days of discussions</strong>, during which all questions will be discussed in detail.
+  </blockquote>
+
+  <h3>Mock Exam Format</h3>
+
+  <p>
+    All remaining mock exams are conducted online, with live online discussion sessions following each exam.
+  </p>
+
+  <h4>Exception – Mock Exam 3 (July 24–26)</h4>
+
+  <p>For Mock Exam 3, you may choose one of the following formats:</p>
+
+  <ul>
+    <li>
+      <strong>Option 1:</strong>
+      <span class="afk-hl" style="color:#c00000;font-weight:700;">Online mock exam</span> +
+      <span class="afk-hl" style="color:#c00000;font-weight:700;">Online (Pre-recorded) discussion</span>
+    </li>
+    <li>
+      <strong>Option 2:</strong>
+      <span class="afk-hl" style="color:#c00000;font-weight:700;">In-person mock exam</span> +
+      <span class="afk-hl" style="color:#c00000;font-weight:700;">In-person (Live) discussion</span>
+    </li>
+    <li>
+      After completing your registration, simply reply to your confirmation email and let us know which option you prefer.
+    </li>
+  </ul>
+
+  <p class="afk-note">
+    <strong>*No recording will be provided if you miss any of the discussion sessions.</strong>
+  </p>
+
+  <h3>Remaining Mock Exam Schedule</h3>
+
+  <div class="afk-mock-schedule-wrap">
+    <table class="afk-mock-schedule" style="width:100%;max-width:680px;border-collapse:collapse;border:1px solid #c5ccd8;text-align:left;font-size:13px;">
+      <thead>
+        <tr style="background-color:#0f1f3d;color:#ffffff;">
+          <th class="col-date" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Date</th>
+          <th class="col-day" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Day</th>
+          <th class="col-time" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Time</th>
+          <th class="col-session" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Session</th>
+          <th class="col-instructor" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Instructor</th>
+          <th class="col-format" style="padding:8px 6px;border:1px solid #0f1f3d;background-color:#0f1f3d;color:#ffffff;">Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;">July 24, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;">Friday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;">Full Mock Exam 3</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;">Exam Admin</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;">In-person or Online</td>
+        </tr>
+        <tr style="background-color:#f7f7f7;">
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">July 25, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Saturday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Discussion 3-1</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">In-person (Live) or Online (Pre-recorded)</td>
+        </tr>
+        <tr>
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;">July 26, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;">Sunday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;">Discussion 3-2</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;">In-person (Live) or Online (Pre-recorded)</td>
+        </tr>
+        <tr style="background-color:#f7f7f7;">
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">July 31, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Friday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Full Mock Exam 4</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Exam Administration</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Online</td>
+        </tr>
+        <tr>
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;">August 1, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;">Saturday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;">Discussion 4-1</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;">Online (Live)</td>
+        </tr>
+        <tr style="background-color:#f7f7f7;">
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">August 2, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Sunday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Discussion 4-2</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Online (Live)</td>
+        </tr>
+        <tr>
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;">August 4, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;">Tuesday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;">Full Mock Exam 5</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;">Exam Administration</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;">Online</td>
+        </tr>
+        <tr style="background-color:#f7f7f7;">
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">August 5, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Wednesday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Discussion 5-1</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;background-color:#f7f7f7;">Online (Live)</td>
+        </tr>
+        <tr>
+          <td data-label="Date" style="padding:8px 6px;border:1px solid #c5ccd8;">August 6, 2026</td>
+          <td data-label="Day" style="padding:8px 6px;border:1px solid #c5ccd8;">Thursday</td>
+          <td data-label="Time" style="padding:8px 6px;border:1px solid #c5ccd8;">10:00 AM–3:00 PM</td>
+          <td data-label="Session" style="padding:8px 6px;border:1px solid #c5ccd8;">Discussion 5-2</td>
+          <td data-label="Instructor" style="padding:8px 6px;border:1px solid #c5ccd8;">Dr. Mehdi</td>
+          <td data-label="Format" style="padding:8px 6px;border:1px solid #c5ccd8;">Online (Live)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

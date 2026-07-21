@@ -1,0 +1,268 @@
+/*
+  ============================================================
+  AVADA CUSTOM CSS FIX — WooCommerce variation dropdown
+  Product example:
+  https://www.confidentist.ca/product/afk-mock-exam-august-2026/
+
+  BUG FOUND
+  ----------
+  In Avada > Options > Custom CSS, the entire
+  "WOOCOMMERCE PRODUCT VARIATIONS" block was accidentally
+  nested INSIDE this media query:
+
+    @media screen and (max-width: 768px) {
+      /* sticky header offsets ... */
+
+      /* WOOCOMMERCE PRODUCT VARIATIONS  <-- WRONG: trapped here */
+      ...
+    }
+
+  Because of a missing closing `}` after the sticky-header
+  mobile rules, the variation/Select2 styles only applied on
+  screens ≤768px. On desktop the Avada select stayed tiny /
+  clipped / hard to see.
+
+  A second always-on rule also hurt open options:
+
+    .select2-container--open .select2-dropdown--below {
+      background: #5d5d5d;  /* dark gray behind dark text */
+    }
+
+  HOW TO APPLY
+  ------------
+  1. Avada > Options > Custom CSS
+  2. Find the block that starts with:
+       /* 3. Push Avada's Sticky Menu ... (Mobile: 91px offset) */
+  3. Replace from that comment through the end of the
+     WOOCOMMERCE PRODUCT VARIATIONS section with EVERYTHING
+     below this comment block (from the /* 3. Push ... */ line
+     downward).
+  4. Save / regenerate Avada CSS cache if needed.
+  ============================================================
+*/
+
+/* 3. Push Avada's Sticky Menu exactly below the Promo Bar (Mobile: 91px offset) */
+@media screen and (max-width: 768px) {
+    body:not(.page-id-57013) .fusion-is-sticky .fusion-header,
+    body:not(.page-id-57013) .fusion-is-sticky .fusion-sticky-header-wrapper {
+        top: 91px !important;
+    }
+    body:not(.page-id-57013) .admin-bar .fusion-is-sticky .fusion-header,
+    body:not(.page-id-57013) .admin-bar .fusion-is-sticky .fusion-sticky-header-wrapper {
+        top: 137px !important; /* 91px + 46px WP Admin bar */
+    }
+} /* ← THIS closing brace was missing — it trapped all variation CSS in mobile-only */
+
+/* Fix dark Select2 panel that made options nearly invisible */
+body:not(.page-id-57013) .select2-container--open .select2-dropdown--below {
+    background: #ffffff !important;
+}
+
+/* ==================================================
+   WOOCOMMERCE PRODUCT VARIATIONS
+   Compatible with Avada and Select2
+   (must stay OUTSIDE any max-width media query)
+================================================== */
+
+/* Variation table */
+body:not(.page-id-57013) table.variations,
+body:not(.page-id-57013) table.variations tbody,
+body:not(.page-id-57013) table.variations tr {
+    display: block !important;
+    width: 100% !important;
+}
+
+body:not(.page-id-57013) table.variations {
+    margin: 20px 0 25px !important;
+    border: 0 !important;
+}
+
+body:not(.page-id-57013) table.variations tr {
+    margin: 0 0 18px !important;
+    border: 0 !important;
+}
+
+/* Label and value columns */
+body:not(.page-id-57013) table.variations td.label,
+body:not(.page-id-57013) table.variations td.value {
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: left !important;
+}
+
+/* Option title */
+body:not(.page-id-57013) table.variations td.label {
+    margin: 0 0 10px !important;
+}
+
+body:not(.page-id-57013) table.variations td.label label {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    color: #324675 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+}
+
+/* Dropdown value area */
+body:not(.page-id-57013) table.variations td.value {
+    position: relative !important;
+}
+
+/* Avada dropdown container — overflow:hidden was clipping the control */
+body:not(.page-id-57013) table.variations td.value .avada-select-parent {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+/* Normal dropdown before / without Select2 */
+body:not(.page-id-57013) table.variations td.value select:not(.select2-hidden-accessible) {
+    display: block !important;
+    visibility: visible !important;
+    appearance: auto !important;
+    -webkit-appearance: menulist !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+    color: #324675 !important;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    background-color: #ffffff !important;
+    border: 2px solid #5d7fa3 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 3px 12px rgba(50, 70, 117, 0.12) !important;
+    opacity: 1 !important;
+}
+
+/* Keep original field accessible but out of layout when Select2 is active */
+body:not(.page-id-57013) table.variations td.value select.select2-hidden-accessible {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Select2 container */
+body:not(.page-id-57013) table.variations td.value .select2-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
+/* Visible Select2 field */
+body:not(.page-id-57013) table.variations td.value .select2-container .select2-selection--single {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    padding: 0 45px 0 16px !important;
+    color: #324675 !important;
+    background-color: #ffffff !important;
+    border: 2px solid #5d7fa3 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 3px 12px rgba(50, 70, 117, 0.12) !important;
+    box-sizing: border-box !important;
+}
+
+/* Select2 displayed text */
+body:not(.page-id-57013) table.variations td.value .select2-container .select2-selection--single .select2-selection__rendered {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    color: #324675 !important;
+    font-family: inherit !important;
+    font-size: 16px !important;
+    line-height: 50px !important;
+    text-align: left !important;
+}
+
+/* Select2 arrow */
+body:not(.page-id-57013) table.variations td.value .select2-container .select2-selection--single .select2-selection__arrow {
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
+    transform: translateY(-50%) !important;
+}
+
+/* Focus state for normal dropdown */
+body:not(.page-id-57013) table.variations td.value select:focus {
+    border-color: #324675 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(93, 127, 163, 0.18) !important;
+}
+
+/* Focus state for Select2 */
+body:not(.page-id-57013) table.variations td.value .select2-container--focus .select2-selection--single,
+body:not(.page-id-57013) table.variations td.value .select2-container--open .select2-selection--single {
+    border-color: #324675 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(93, 127, 163, 0.18) !important;
+}
+
+/* Open Select2 menu */
+body:not(.page-id-57013) .select2-container--open .select2-dropdown {
+    background-color: #ffffff !important;
+    border: 2px solid #5d7fa3 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 20px rgba(50, 70, 117, 0.16) !important;
+}
+
+/* Select2 menu options */
+body:not(.page-id-57013) .select2-container--open .select2-results__option {
+    padding: 12px 16px !important;
+    color: #324675 !important;
+    background-color: #ffffff !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    min-height: 44px !important;
+}
+
+/* Highlighted Select2 option */
+body:not(.page-id-57013) .select2-container--open .select2-results__option--highlighted {
+    color: #ffffff !important;
+    background-color: #5d7fa3 !important;
+}
+
+/* Reset / clear selection link */
+body:not(.page-id-57013) table.variations td.value .reset_variations {
+    display: inline-block !important;
+    margin: 10px 0 0 !important;
+    color: #5d7fa3 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+@media screen and (max-width: 480px) {
+    body:not(.page-id-57013) table.variations td.value select:not(.select2-hidden-accessible),
+    body:not(.page-id-57013) table.variations td.value .avada-select-parent,
+    body:not(.page-id-57013) table.variations td.value .select2-container {
+        max-width: 100% !important;
+    }
+}
