@@ -49,6 +49,8 @@ interface ExternalLink {
   href?: string
 }
 
+import { newBlogPosts } from "./blog-data-new"
+
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
@@ -15963,7 +15965,8 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-01-26",
     readTime: "9 min read",
     image: "/images/blog/medical-aesthetician-vs-esthetician-difference.png"
-  }
+  },
+  ...newBlogPosts,
 ]
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
