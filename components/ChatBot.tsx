@@ -5,44 +5,44 @@ import { X, Send, MessageCircle, ChevronRight, Sparkles } from "lucide-react";
 
 // ── Knowledge base ──────────────────────────────────────────────────────────
 
-const COURSES = [
-  {
-    key: "plasma-prp",
-    title: "Plasma PRP",
-    duration: "2 Days",
-    level: "Intermediate",
-    description:
-      "Master platelet-rich plasma therapy for facial rejuvenation, hair restoration, and skin healing. Covers blood-draw techniques, PRP preparation protocols, injection methods, and sterility standards.",
-  },
+const CERTIFICATE_PROGRAMS = [
   {
     key: "botox-filler",
     title: "Botox & Filler",
     duration: "5 Days",
-    level: "All Levels",
+    level: "Certificate",
     description:
-      "Comprehensive neurotoxin and dermal filler training covering facial anatomy, product selection, advanced injection techniques, and complication management. Suitable for all experience levels.",
+      "Comprehensive neurotoxin and dermal filler training covering facial anatomy, Botox and filler techniques, danger zones, and client consultation. Open to medical professionals only.",
   },
   {
-    key: "medical-aesthetician",
-    title: "Medical Aesthetician",
-    duration: "8 Weeks",
-    level: "Beginner",
+    key: "plasma-prp",
+    title: "Plasma PRP",
+    duration: "2 Days",
+    level: "Certificate",
     description:
-      "Foundational program in skincare science, chemical peels, dermaplaning, and professional client consultation. Perfect for those starting their aesthetics career.",
+      "Master platelet-rich plasma therapy for facial rejuvenation, hair restoration, and skin healing. Covers blood-draw techniques, PRP preparation protocols, injection methods, and sterility standards. Open to medical professionals only.",
   },
   {
-    key: "laser-technician",
-    title: "Laser Technician",
-    duration: "4 Weeks",
-    level: "Intermediate",
+    key: "prp-certificate",
+    title: "PRP Certificate Program",
+    duration: "1 Day",
+    level: "Certificate",
     description:
-      "Industry-recognized certification in laser hair removal, skin rejuvenation, and safety protocols. Covers laser physics, Fitzpatrick skin typing, and compliance requirements.",
+      "One-day certificate training in platelet-rich plasma therapy — theory and hands-on practice. Open to medical professionals only.",
+  },
+  {
+    key: "tattoo-removal",
+    title: "Tattoo Removal Certificate Program",
+    duration: "1 Day",
+    level: "Certificate",
+    description:
+      "One-day theory and hands-on training in laser tattoo removal techniques, device operation, client consultation, and aftercare protocols.",
   },
   {
     key: "microneedling",
     title: "Microneedling",
     duration: "2 Days",
-    level: "Intermediate",
+    level: "Certificate",
     description:
       "Advanced collagen induction therapy for skin rejuvenation and scar treatment. Includes device operation, depth protocols, PRP combination techniques, and aftercare management.",
   },
@@ -50,51 +50,72 @@ const COURSES = [
     key: "micropigmentation",
     title: "Micropigmentation",
     duration: "5 Days",
-    level: "Beginner",
+    level: "Certificate",
     description:
       "Professional permanent makeup covering brow mapping, lip blush, eyeliner, color theory, machine techniques, and touch-up protocols.",
-  },
-  {
-    key: "skin-care",
-    title: "Skin Care",
-    duration: "4 Weeks",
-    level: "Beginner",
-    description:
-      "Comprehensive skincare training in facial techniques, product chemistry, treatment planning, and home care protocols for a variety of skin conditions.",
   },
   {
     key: "butt-lift",
     title: "Non-Surgical Butt Lift",
     duration: "2 Days",
-    level: "Advanced",
+    level: "Certificate",
     description:
       "Advanced body contouring using vacuum therapy and radiofrequency technologies. Covers client assessment, treatment protocols, and safety standards.",
   },
   {
+    key: "skin-care",
+    title: "Skin Care",
+    duration: "4 Weeks",
+    level: "Certificate",
+    description:
+      "Comprehensive skincare training in facial techniques, product chemistry, treatment planning, and home care protocols for a variety of skin conditions.",
+  },
+];
+
+const DIPLOMA_PROGRAMS = [
+  {
     key: "aesthetic-diploma",
     title: "Aesthetic Diploma",
     duration: "16 Weeks",
-    level: "Comprehensive",
+    level: "Diploma",
     description:
       "Our flagship program covering the full spectrum of medical aesthetics — all core treatments, business fundamentals, clinical practicum, and career placement support. The most complete path to a professional career.",
-  },
-  {
-    key: "advanced-laser-technician",
-    title: "Advanced Medical Laser Technician",
-    duration: "6 Weeks",
-    level: "Advanced",
-    description:
-      "Advanced certification across multiple laser modalities, complex case management, combination therapies, and advanced safety protocols.",
   },
   {
     key: "medical-aesthetic",
     title: "Medical Aesthetic Specialist",
     duration: "12 Weeks",
-    level: "Advanced",
+    level: "Diploma",
     description:
       "Elite certification for practitioners seeking mastery in injectable techniques, device expertise, comprehensive treatment planning, and patient management.",
   },
+  {
+    key: "advanced-laser-technician",
+    title: "Advanced Medical Laser Technician",
+    duration: "6 Weeks",
+    level: "Diploma",
+    description:
+      "Advanced certification across multiple laser modalities, complex case management, combination therapies, and advanced safety protocols.",
+  },
+  {
+    key: "medical-aesthetician",
+    title: "Medical Aesthetician",
+    duration: "8 Weeks",
+    level: "Diploma",
+    description:
+      "Foundational program in skincare science, chemical peels, dermaplaning, and professional client consultation. Perfect for those starting their aesthetics career.",
+  },
+  {
+    key: "laser-technician",
+    title: "Laser Technician",
+    duration: "4 Weeks",
+    level: "Diploma",
+    description:
+      "Industry-recognized certification in laser hair removal, skin rejuvenation, and safety protocols. Covers laser physics, Fitzpatrick skin typing, and compliance requirements.",
+  },
 ];
+
+const COURSES = [...CERTIFICATE_PROGRAMS, ...DIPLOMA_PROGRAMS];
 
 const COURSE_ALIASES: Record<string, string> = {
   "advanced laser": "advanced-laser-technician",
@@ -171,10 +192,11 @@ function getReply(input: string): Message {
 
   // All courses list
   if (/see all courses|show me all courses|all courses|all programs|what do you offer|what courses|what programs|what training/i.test(q)) {
-    const list = COURSES.map((c) => `• **${c.title}** — ${c.duration} (${c.level})`).join("\n");
+    const certList = CERTIFICATE_PROGRAMS.map((c) => `• **${c.title}** — ${c.duration}`).join("\n");
+    const diplomaList = DIPLOMA_PROGRAMS.map((c) => `• **${c.title}** — ${c.duration}`).join("\n");
     return {
       role: "bot",
-      text: `We offer 11 professional programs:\n\n${list}\n\nAsk me about any specific course for full details.`,
+      text: `We offer ${COURSES.length} professional programs:\n\n**Certificate Programs**\n${certList}\n\n**Diploma Programs**\n${diplomaList}\n\nAsk me about any specific course for full details.`,
       quickReplies: ["Aesthetic Diploma", "Botox & Filler", "Laser Technician", "Medical Aesthetician"],
     };
   }
@@ -234,8 +256,8 @@ function getReply(input: string): Message {
   if (/how long|duration|time|weeks|days|weekend/i.test(q)) {
     return {
       role: "bot",
-      text: "Our programs range from intensive weekend courses to comprehensive multi-week diplomas:\n\n⚡ **2-Day Courses:** Plasma PRP, Microneedling, Non-Surgical Butt Lift\n📆 **5-Day Courses:** Botox & Filler, Micropigmentation\n📚 **4–8 Week:** Skin Care, Laser Technician, Medical Aesthetician\n🎓 **12–16 Week:** Medical Aesthetic Specialist, Aesthetic Diploma\n\nShort on time? Our 2-day intensives are a great way to add a skill quickly.",
-      quickReplies: ["2-day courses", "Flagship Diploma", "Botox & Filler", "Book a consultation"],
+      text: "Our programs range from one-day certificates to comprehensive multi-week diplomas:\n\n⚡ **1-Day Certificates:** Tattoo Removal, PRP Certificate Program\n⚡ **2-Day Certificates:** Plasma PRP, Microneedling, Non-Surgical Butt Lift\n📆 **5-Day Certificates:** Botox & Filler, Micropigmentation\n📚 **4–8 Week:** Skin Care, Laser Technician, Medical Aesthetician\n🎓 **12–16 Week:** Medical Aesthetic Specialist, Aesthetic Diploma\n\nShort on time? Our one-day and two-day intensives are a great way to add a skill quickly.",
+      quickReplies: ["Botox & Filler", "Tattoo Removal Certificate Program", "Aesthetic Diploma", "Book a consultation"],
     };
   }
 
@@ -426,7 +448,7 @@ function ConsultationForm() {
 
 const WELCOME: Message = {
   role: "bot",
-  text: "Hi! I'm the Ziba Aesthetics virtual assistant. I can help you explore our 11 professional training programs, guide you through admissions, or answer any questions about the institute.",
+  text: `Hi! I'm the Ziba Aesthetics virtual assistant. I can help you explore our ${COURSES.length} professional training programs — Certificate and Diploma — guide you through admissions, or answer any questions about the institute.`,
   quickReplies: ["See all courses", "Which course suits me?", "Admissions process", "Location & contact"],
 };
 

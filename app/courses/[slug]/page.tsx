@@ -18,7 +18,19 @@ const courseImages: Record<string, string> = {
   "aesthetic-diploma": "/images/courses/aesthetic-diploma.jpg",
   "advanced-laser-technician": "/images/courses/advanced-laser.jpg",
   "medical-aesthetic": "/images/courses/medical-specialist.jpg",
+  "tattoo-removal": "/images/courses/advanced-laser.jpg",
+  "prp-certificate": "/images/courses/plasma-prp.jpg",
 }
+
+const MEDICAL_ELIGIBILITY_NOTE =
+  "This course is open to medical professionals only. Applicants must meet at least one of the following criteria:"
+
+const MEDICAL_ELIGIBILITY = [
+  "Nurse",
+  "Medical Doctor",
+  "International Medical Doctor",
+  "An applicant who can provide an authorized letter from a Medical Director",
+]
 
 const coursesData: Record<string, {
   title: string
@@ -27,8 +39,10 @@ const coursesData: Record<string, {
   level: string
   price: string
   overview: string
+  whoIsItForNote?: string
   whoIsItFor: string[]
   curriculum: { module: string; topics: string[] }[]
+  curriculumNote?: string
   certification: string
   prerequisites: string[]
 }> = {
@@ -38,64 +52,162 @@ const coursesData: Record<string, {
     duration: "2 Days",
     level: "Intermediate",
     price: "$1,800",
-    overview: "Master the art and science of platelet-rich plasma therapy, one of the most sought-after regenerative treatments in aesthetic medicine. This intensive two-day program provides comprehensive training in PRP preparation, injection techniques, and treatment protocols for facial rejuvenation, hair restoration, and skin healing.",
-    whoIsItFor: [
-      "Licensed nurses and nurse practitioners",
-      "Physician assistants",
-      "Medical aestheticians with injection experience",
-      "Physicians expanding their aesthetic practice",
-    ],
+    overview:
+      "Master the art and science of platelet-rich plasma therapy, one of the most sought-after regenerative treatments in aesthetic medicine. This intensive two-day program provides comprehensive training in PRP preparation, injection techniques, and treatment protocols for facial rejuvenation, hair restoration, and skin healing.",
+    whoIsItForNote: MEDICAL_ELIGIBILITY_NOTE,
+    whoIsItFor: MEDICAL_ELIGIBILITY,
     curriculum: [
       {
         module: "Day 1: Foundations",
-        topics: ["PRP science and mechanisms", "Blood draw techniques", "Centrifuge operation and protocols", "Safety and sterility standards"],
+        topics: [
+          "PRP science and mechanisms",
+          "Blood draw techniques",
+          "Centrifuge operation and protocols",
+          "Safety and sterility standards",
+        ],
       },
       {
         module: "Day 2: Clinical Application",
-        topics: ["Facial rejuvenation protocols", "Hair restoration techniques", "Combination therapies", "Hands-on practice with live models"],
+        topics: [
+          "Facial rejuvenation protocols",
+          "Hair restoration techniques",
+          "Combination therapies",
+          "Hands-on practice with live models",
+        ],
       },
     ],
-    certification: "Upon successful completion, graduates receive the Ziba Aesthetics Training Institute PRP Practitioner Certification, recognized by major aesthetic medicine associations.",
+    certification:
+      "Upon successful completion, graduates receive the Ziba Aesthetics Training Institute PRP Practitioner Certification, recognized by major aesthetic medicine associations.",
     prerequisites: ["Valid healthcare license", "Basic injection training", "Current CPR certification"],
   },
+
+  "prp-certificate": {
+    title: "PRP Certificate Program",
+    subtitle: "Platelet-Rich Plasma One-Day Certificate",
+    duration: "1 Day",
+    level: "Certificate",
+    price: "Contact Admissions",
+    overview:
+      "An intensive one-day certificate program covering the fundamentals of platelet-rich plasma therapy. This course introduces the science, preparation, and application of PRP in an aesthetic setting, providing a solid foundation for practitioners adding PRP to their services.",
+    whoIsItForNote: MEDICAL_ELIGIBILITY_NOTE,
+    whoIsItFor: MEDICAL_ELIGIBILITY,
+    curriculum: [
+      {
+        module: "Theory & Hands-On Training",
+        topics: [
+          "PRP science and mechanisms",
+          "Blood draw and centrifuge protocols",
+          "Safety and sterility standards",
+          "Facial rejuvenation applications",
+          "Hands-on practice",
+        ],
+      },
+    ],
+    certification:
+      "Graduates receive the Ziba Aesthetics Training Institute PRP Certificate, qualifying them to perform PRP treatments within their authorized scope of practice.",
+    prerequisites: [
+      "Valid healthcare license",
+      "Current CPR certification",
+    ],
+  },
+
   "botox-filler": {
     title: "Botox & Filler",
     subtitle: "Injectable Aesthetics Certification",
     duration: "5 Days",
     level: "All Levels",
     price: "$4,500",
-    overview: "Our flagship injectable training program provides comprehensive education in neurotoxin and dermal filler administration. From facial anatomy to advanced contouring techniques, this course prepares you to deliver safe, beautiful results that clients trust.",
+    overview:
+      "Our flagship injectable training program provides comprehensive education in neurotoxin and dermal filler administration. From facial anatomy to advanced contouring techniques, this course prepares you to deliver safe, beautiful results that clients trust.",
+    whoIsItForNote: MEDICAL_ELIGIBILITY_NOTE,
+    whoIsItFor: MEDICAL_ELIGIBILITY,
+    curriculum: [
+      {
+        module: "Botox",
+        topics: [
+          "What is Botox?",
+          "How does it work?",
+          "Indications",
+          "Contraindications",
+          "Upper-face injection sites and techniques",
+          "Facial anatomy",
+          "Danger zones",
+          "Dilution and dosage",
+          "Handling and storage",
+          "Facial aging process",
+          "Client consultation",
+          "Aftercare",
+        ],
+      },
+      {
+        module: "Fillers",
+        topics: [
+          "What are dermal fillers?",
+          "Brands",
+          "Indications",
+          "Contraindications",
+          "Injection sites and techniques",
+          "Facial anatomy",
+          "Facial aging",
+          "Client consultation",
+          "Aftercare",
+        ],
+      },
+    ],
+    curriculumNote: "Please contact Admissions for additional information.",
+    certification:
+      "Graduates earn the Ziba Aesthetics Training Institute Injectable Certification, qualifying them to perform neurotoxin and filler treatments in accordance with their scope of practice.",
+    prerequisites: [
+      "Valid healthcare license permitting injections",
+      "Current CPR certification",
+    ],
+  },
+
+  "tattoo-removal": {
+    title: "Tattoo Removal Certificate Program",
+    subtitle: "Laser Tattoo Removal Certificate",
+    duration: "1 Day",
+    level: "Certificate",
+    price: "Contact Admissions",
+    overview:
+      "A focused one-day certificate program combining theory and hands-on training in laser tattoo removal. Students gain an understanding of the science behind tattoo removal, safe device operation, client assessment, and aftercare protocols.",
     whoIsItFor: [
-      "Nurses and nurse practitioners",
-      "Physicians and physician assistants",
-      "Dentists and dental specialists",
-      "Beginners seeking foundational training",
-      "Experienced injectors refining techniques",
+      "Licensed laser technicians expanding their services",
+      "Medical aestheticians",
+      "Nurses and healthcare professionals in aesthetic practice",
+      "Practitioners adding tattoo removal to their clinic",
     ],
     curriculum: [
       {
-        module: "Days 1-2: Foundations",
-        topics: ["Advanced facial anatomy", "Product pharmacology", "Patient assessment", "Injection fundamentals"],
-      },
-      {
-        module: "Days 3-4: Advanced Techniques",
-        topics: ["Upper face neurotoxin treatment", "Mid and lower face contouring", "Lip augmentation mastery", "Combination approaches"],
-      },
-      {
-        module: "Day 5: Clinical Practice",
-        topics: ["Hands-on injections with live patients", "Complication prevention and management", "Practice building essentials"],
+        module: "Theory & Hands-On Training",
+        topics: [
+          "How laser tattoo removal works",
+          "Laser-skin interaction and ink absorption",
+          "Fitzpatrick skin typing and contraindications",
+          "Device operation and safety",
+          "Treatment planning and parameter selection",
+          "Client consultation and consent",
+          "Aftercare and follow-up protocols",
+          "Hands-on practice",
+        ],
       },
     ],
-    certification: "Graduates earn the Ziba Aesthetics Training Institute Injectable Certification, qualifying them to perform neurotoxin and filler treatments in accordance with their scope of practice.",
-    prerequisites: ["Valid healthcare license permitting injections", "Current CPR certification"],
+    certification:
+      "Graduates receive the Ziba Aesthetics Training Institute Tattoo Removal Certificate, qualifying them to perform laser tattoo removal treatments within their authorized scope of practice.",
+    prerequisites: [
+      "Licensed laser technician or healthcare credential",
+      "Current CPR certification",
+    ],
   },
+
   "medical-aesthetician": {
     title: "Medical Aesthetician",
     subtitle: "Professional Skincare Certification",
     duration: "8 Weeks",
     level: "Beginner",
     price: "$6,500",
-    overview: "Launch your career in medical aesthetics with our comprehensive Medical Aesthetician program. This foundational course covers everything from skin science to professional treatment protocols, preparing you to work confidently in clinical settings.",
+    overview:
+      "Launch your career in medical aesthetics with our comprehensive Medical Aesthetician program. This foundational course covers everything from skin science to professional treatment protocols, preparing you to work confidently in clinical settings.",
     whoIsItFor: [
       "Career changers entering aesthetics",
       "Licensed estheticians seeking medical training",
@@ -105,7 +217,12 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Weeks 1-2: Skin Science",
-        topics: ["Skin anatomy and physiology", "Skin types and conditions", "Product chemistry fundamentals", "Consultation techniques"],
+        topics: [
+          "Skin anatomy and physiology",
+          "Skin types and conditions",
+          "Product chemistry fundamentals",
+          "Consultation techniques",
+        ],
       },
       {
         module: "Weeks 3-4: Core Treatments",
@@ -113,23 +230,36 @@ const coursesData: Record<string, {
       },
       {
         module: "Weeks 5-6: Advanced Protocols",
-        topics: ["LED therapy", "Ultrasound treatments", "Treatment customization", "Home care prescriptions"],
+        topics: [
+          "LED therapy",
+          "Ultrasound treatments",
+          "Treatment customization",
+          "Home care prescriptions",
+        ],
       },
       {
         module: "Weeks 7-8: Clinical Practice",
-        topics: ["Client management", "Documentation standards", "Business essentials", "Supervised clinical hours"],
+        topics: [
+          "Client management",
+          "Documentation standards",
+          "Business essentials",
+          "Supervised clinical hours",
+        ],
       },
     ],
-    certification: "Graduates receive the Medical Aesthetician Certificate, qualifying them to work in medical spas, dermatology practices, and plastic surgery clinics.",
+    certification:
+      "Graduates receive the Medical Aesthetician Certificate, qualifying them to work in medical spas, dermatology practices, and plastic surgery clinics.",
     prerequisites: ["High school diploma or equivalent", "Background check clearance"],
   },
+
   "laser-technician": {
     title: "Laser Technician",
     subtitle: "Medical Laser Certification",
     duration: "4 Weeks",
     level: "Intermediate",
     price: "$5,200",
-    overview: "Become a certified laser technician with comprehensive training in laser physics, skin typing, treatment protocols, and safety standards. This program prepares you to operate laser devices safely and effectively across multiple treatment applications.",
+    overview:
+      "Become a certified laser technician with comprehensive training in laser physics, skin typing, treatment protocols, and safety standards. This program prepares you to operate laser devices safely and effectively across multiple treatment applications.",
     whoIsItFor: [
       "Licensed estheticians",
       "Nurses entering aesthetics",
@@ -139,7 +269,12 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Week 1: Laser Fundamentals",
-        topics: ["Laser physics and terminology", "Skin typing and assessment", "Safety protocols and regulations", "Device operation basics"],
+        topics: [
+          "Laser physics and terminology",
+          "Skin typing and assessment",
+          "Safety protocols and regulations",
+          "Device operation basics",
+        ],
       },
       {
         module: "Week 2: Hair Removal",
@@ -147,23 +282,39 @@ const coursesData: Record<string, {
       },
       {
         module: "Week 3: Skin Treatments",
-        topics: ["Photofacial treatments", "Skin rejuvenation protocols", "Pigmentation treatments", "Vascular lesion treatment"],
+        topics: [
+          "Photofacial treatments",
+          "Skin rejuvenation protocols",
+          "Pigmentation treatments",
+          "Vascular lesion treatment",
+        ],
       },
       {
         module: "Week 4: Clinical Practice",
-        topics: ["Supervised treatments", "Client consultations", "Documentation requirements", "Certification exam preparation"],
+        topics: [
+          "Supervised treatments",
+          "Client consultations",
+          "Documentation requirements",
+          "Certification exam preparation",
+        ],
       },
     ],
-    certification: "Graduates receive state-recognized Laser Technician Certification, meeting regulatory requirements for laser operation in clinical settings.",
-    prerequisites: ["Licensed esthetician or healthcare credential", "Current CPR certification"],
+    certification:
+      "Graduates receive state-recognized Laser Technician Certification, meeting regulatory requirements for laser operation in clinical settings.",
+    prerequisites: [
+      "Licensed esthetician or healthcare credential",
+      "Current CPR certification",
+    ],
   },
+
   "microneedling": {
     title: "Microneedling",
     subtitle: "Collagen Induction Therapy Certification",
     duration: "2 Days",
     level: "Intermediate",
     price: "$1,500",
-    overview: "Master microneedling techniques for skin rejuvenation, scar treatment, and product penetration enhancement. This hands-on program covers device operation, depth protocols, and combination therapies including PRP microneedling.",
+    overview:
+      "Master microneedling techniques for skin rejuvenation, scar treatment, and product penetration enhancement. This hands-on program covers device operation, depth protocols, and combination therapies including PRP microneedling.",
     whoIsItFor: [
       "Licensed estheticians",
       "Nurses and nurse practitioners",
@@ -173,23 +324,39 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Day 1: Theory & Technique",
-        topics: ["Collagen induction science", "Device types and selection", "Depth protocols by treatment area", "Contraindications and safety"],
+        topics: [
+          "Collagen induction science",
+          "Device types and selection",
+          "Depth protocols by treatment area",
+          "Contraindications and safety",
+        ],
       },
       {
         module: "Day 2: Clinical Application",
-        topics: ["Face and neck treatments", "Scar revision protocols", "PRP combination therapy", "Hands-on practice sessions"],
+        topics: [
+          "Face and neck treatments",
+          "Scar revision protocols",
+          "PRP combination therapy",
+          "Hands-on practice sessions",
+        ],
       },
     ],
-    certification: "Graduates receive the Microneedling Practitioner Certification, qualifying them to perform collagen induction therapy treatments.",
-    prerequisites: ["Licensed esthetician or healthcare credential", "Basic anatomy knowledge"],
+    certification:
+      "Graduates receive the Microneedling Practitioner Certification, qualifying them to perform collagen induction therapy treatments.",
+    prerequisites: [
+      "Licensed esthetician or healthcare credential",
+      "Basic anatomy knowledge",
+    ],
   },
+
   "micropigmentation": {
     title: "Micropigmentation",
     subtitle: "Permanent Makeup Artistry Certification",
     duration: "5 Days",
     level: "Beginner",
     price: "$3,800",
-    overview: "Develop your artistry in permanent makeup with comprehensive training in brows, lips, and eyeliner techniques. This program combines color theory, facial mapping, and machine techniques to prepare you for a rewarding career in micropigmentation.",
+    overview:
+      "Develop your artistry in permanent makeup with comprehensive training in brows, lips, and eyeliner techniques. This program combines color theory, facial mapping, and machine techniques to prepare you for a rewarding career in micropigmentation.",
     whoIsItFor: [
       "Makeup artists expanding services",
       "Estheticians adding specialization",
@@ -199,27 +366,48 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Days 1-2: Foundations",
-        topics: ["Color theory and selection", "Facial mapping and symmetry", "Skin anatomy for PMU", "Sanitation and safety"],
+        topics: [
+          "Color theory and selection",
+          "Facial mapping and symmetry",
+          "Skin anatomy for PMU",
+          "Sanitation and safety",
+        ],
       },
       {
         module: "Days 3-4: Technique Mastery",
-        topics: ["Brow shaping and filling", "Lip blush techniques", "Eyeliner application", "Machine operation and needle selection"],
+        topics: [
+          "Brow shaping and filling",
+          "Lip blush techniques",
+          "Eyeliner application",
+          "Machine operation and needle selection",
+        ],
       },
       {
         module: "Day 5: Practical Application",
-        topics: ["Live model practice", "Touch-up protocols", "Client consultation", "Portfolio development"],
+        topics: [
+          "Live model practice",
+          "Touch-up protocols",
+          "Client consultation",
+          "Portfolio development",
+        ],
       },
     ],
-    certification: "Graduates earn the Permanent Makeup Artist Certification, meeting requirements for professional micropigmentation practice.",
-    prerequisites: ["High school diploma", "Portfolio demonstrating artistic ability preferred"],
+    certification:
+      "Graduates earn the Permanent Makeup Artist Certification, meeting requirements for professional micropigmentation practice.",
+    prerequisites: [
+      "High school diploma",
+      "Portfolio demonstrating artistic ability preferred",
+    ],
   },
+
   "skin-care": {
     title: "Skin Care",
     subtitle: "Professional Skincare Fundamentals",
     duration: "4 Weeks",
     level: "Beginner",
     price: "$3,200",
-    overview: "Build a strong foundation in professional skincare with comprehensive training in facial techniques, product knowledge, and treatment planning. This program prepares you for entry-level positions in spas, salons, and skincare clinics.",
+    overview:
+      "Build a strong foundation in professional skincare with comprehensive training in facial techniques, product knowledge, and treatment planning. This program prepares you for entry-level positions in spas, salons, and skincare clinics.",
     whoIsItFor: [
       "Aspiring estheticians",
       "Spa reception staff seeking advancement",
@@ -229,31 +417,54 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Week 1: Skin Fundamentals",
-        topics: ["Skin anatomy basics", "Skin types identification", "Product ingredients", "Consultation skills"],
+        topics: [
+          "Skin anatomy basics",
+          "Skin types identification",
+          "Product ingredients",
+          "Consultation skills",
+        ],
       },
       {
         module: "Week 2: Facial Techniques",
-        topics: ["Cleansing methods", "Extraction techniques", "Massage movements", "Mask application"],
+        topics: [
+          "Cleansing methods",
+          "Extraction techniques",
+          "Massage movements",
+          "Mask application",
+        ],
       },
       {
         module: "Week 3: Treatment Planning",
-        topics: ["Condition assessment", "Treatment customization", "Home care recommendations", "Client education"],
+        topics: [
+          "Condition assessment",
+          "Treatment customization",
+          "Home care recommendations",
+          "Client education",
+        ],
       },
       {
         module: "Week 4: Professional Practice",
-        topics: ["Sanitation standards", "Business basics", "Client retention", "Supervised practice"],
+        topics: [
+          "Sanitation standards",
+          "Business basics",
+          "Client retention",
+          "Supervised practice",
+        ],
       },
     ],
-    certification: "Graduates receive the Professional Skincare Certificate, preparing them for further esthetician licensing or spa employment.",
+    certification:
+      "Graduates receive the Professional Skincare Certificate, preparing them for further esthetician licensing or spa employment.",
     prerequisites: ["High school diploma or equivalent", "Genuine interest in skincare"],
   },
+
   "butt-lift": {
     title: "Non-Surgical Butt Lift",
     subtitle: "Body Contouring Specialist Certification",
     duration: "2 Days",
     level: "Advanced",
     price: "$2,200",
-    overview: "Master non-invasive body contouring techniques using vacuum therapy and radiofrequency technologies. This advanced program teaches safe, effective protocols for gluteal enhancement without surgery.",
+    overview:
+      "Master non-invasive body contouring techniques using vacuum therapy and radiofrequency technologies. This advanced program teaches safe, effective protocols for gluteal enhancement without surgery.",
     whoIsItFor: [
       "Licensed estheticians with body treatment experience",
       "Nurses in aesthetic practice",
@@ -263,23 +474,40 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Day 1: Theory & Assessment",
-        topics: ["Body contouring science", "Client assessment protocols", "Device technology overview", "Treatment planning"],
+        topics: [
+          "Body contouring science",
+          "Client assessment protocols",
+          "Device technology overview",
+          "Treatment planning",
+        ],
       },
       {
         module: "Day 2: Hands-On Training",
-        topics: ["Vacuum therapy techniques", "RF treatment protocols", "Combination approaches", "Results documentation"],
+        topics: [
+          "Vacuum therapy techniques",
+          "RF treatment protocols",
+          "Combination approaches",
+          "Results documentation",
+        ],
       },
     ],
-    certification: "Graduates receive the Body Contouring Specialist Certification, qualifying them to perform non-surgical gluteal enhancement treatments.",
-    prerequisites: ["Licensed esthetician or healthcare credential", "Body treatment experience", "Device training certification"],
+    certification:
+      "Graduates receive the Body Contouring Specialist Certification, qualifying them to perform non-surgical gluteal enhancement treatments.",
+    prerequisites: [
+      "Licensed esthetician or healthcare credential",
+      "Body treatment experience",
+      "Device training certification",
+    ],
   },
+
   "aesthetic-diploma": {
     title: "Aesthetic Diploma",
     subtitle: "Comprehensive Medical Aesthetics Program",
     duration: "16 Weeks",
     level: "Comprehensive",
     price: "$18,500",
-    overview: "Our flagship comprehensive program prepares you for a successful career in medical aesthetics with training across all major treatment modalities. From injectables to lasers, skincare to business fundamentals, this immersive program provides everything you need to excel in the industry.",
+    overview:
+      "Our flagship comprehensive program prepares you for a successful career in medical aesthetics with training across all major treatment modalities. From injectables to lasers, skincare to business fundamentals, this immersive program provides everything you need to excel in the industry.",
     whoIsItFor: [
       "Career changers committed to aesthetics",
       "Healthcare professionals transitioning to aesthetics",
@@ -289,31 +517,58 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Weeks 1-4: Foundations",
-        topics: ["Skin science and anatomy", "Professional facials and peels", "Microdermabrasion and dermaplaning", "Client consultation mastery"],
+        topics: [
+          "Skin science and anatomy",
+          "Professional facials and peels",
+          "Microdermabrasion and dermaplaning",
+          "Client consultation mastery",
+        ],
       },
       {
         module: "Weeks 5-8: Medical Treatments",
-        topics: ["Microneedling certification", "Laser technician training", "Body contouring techniques", "Device operation and safety"],
+        topics: [
+          "Microneedling certification",
+          "Laser technician training",
+          "Body contouring techniques",
+          "Device operation and safety",
+        ],
       },
       {
         module: "Weeks 9-12: Injectable Training",
-        topics: ["Neurotoxin administration", "Dermal filler techniques", "PRP therapy", "Complication management"],
+        topics: [
+          "Neurotoxin administration",
+          "Dermal filler techniques",
+          "PRP therapy",
+          "Complication management",
+        ],
       },
       {
         module: "Weeks 13-16: Clinical & Business",
-        topics: ["Clinical practicum hours", "Business planning", "Marketing fundamentals", "Career placement support"],
+        topics: [
+          "Clinical practicum hours",
+          "Business planning",
+          "Marketing fundamentals",
+          "Career placement support",
+        ],
       },
     ],
-    certification: "Graduates receive the Ziba Aesthetics Training Institute Diploma in Medical Aesthetics, our most comprehensive credential recognized throughout the industry.",
-    prerequisites: ["High school diploma", "Interview with admissions", "Background check"],
+    certification:
+      "Graduates receive the Ziba Aesthetics Training Institute Diploma in Medical Aesthetics, our most comprehensive credential recognized throughout the industry.",
+    prerequisites: [
+      "High school diploma",
+      "Interview with admissions",
+      "Background check",
+    ],
   },
+
   "advanced-laser-technician": {
     title: "Advanced Medical Laser Technician",
     subtitle: "Multi-Platform Laser Certification",
     duration: "6 Weeks",
     level: "Advanced",
     price: "$7,800",
-    overview: "Elevate your laser expertise with advanced training across multiple device platforms and complex treatment protocols. This program is designed for experienced laser technicians seeking mastery in the field.",
+    overview:
+      "Elevate your laser expertise with advanced training across multiple device platforms and complex treatment protocols. This program is designed for experienced laser technicians seeking mastery in the field.",
     whoIsItFor: [
       "Certified laser technicians",
       "Nurses with laser experience",
@@ -323,27 +578,49 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Weeks 1-2: Advanced Platforms",
-        topics: ["Multi-platform operation", "Advanced parameter selection", "Complex skin typing", "Combination therapies"],
+        topics: [
+          "Multi-platform operation",
+          "Advanced parameter selection",
+          "Complex skin typing",
+          "Combination therapies",
+        ],
       },
       {
         module: "Weeks 3-4: Specialty Treatments",
-        topics: ["Tattoo removal protocols", "Advanced vascular treatments", "Resurfacing techniques", "Scar revision"],
+        topics: [
+          "Tattoo removal protocols",
+          "Advanced vascular treatments",
+          "Resurfacing techniques",
+          "Scar revision",
+        ],
       },
       {
         module: "Weeks 5-6: Mastery & Leadership",
-        topics: ["Complex case management", "Treatment planning excellence", "Staff training skills", "Quality assurance"],
+        topics: [
+          "Complex case management",
+          "Treatment planning excellence",
+          "Staff training skills",
+          "Quality assurance",
+        ],
       },
     ],
-    certification: "Graduates receive the Advanced Laser Technician Certification, qualifying them for senior laser positions and training roles.",
-    prerequisites: ["Current laser technician certification", "Minimum 100 treatment hours", "CPR certification"],
+    certification:
+      "Graduates receive the Advanced Laser Technician Certification, qualifying them for senior laser positions and training roles.",
+    prerequisites: [
+      "Current laser technician certification",
+      "Minimum 100 treatment hours",
+      "CPR certification",
+    ],
   },
+
   "medical-aesthetic": {
     title: "Medical Aesthetic Specialist",
     subtitle: "Elite Practitioner Certification",
     duration: "12 Weeks",
     level: "Advanced",
     price: "$14,500",
-    overview: "Achieve mastery in comprehensive aesthetic medicine with our elite specialist program. This advanced certification is designed for experienced practitioners seeking to become true experts in the field.",
+    overview:
+      "Achieve mastery in comprehensive aesthetic medicine with our elite specialist program. This advanced certification is designed for experienced practitioners seeking to become true experts in the field.",
     whoIsItFor: [
       "Experienced injectors seeking mastery",
       "Nurses with aesthetic backgrounds",
@@ -353,19 +630,39 @@ const coursesData: Record<string, {
     curriculum: [
       {
         module: "Weeks 1-4: Injectable Mastery",
-        topics: ["Advanced facial assessment", "Complex injection techniques", "Full face rejuvenation", "Complication mastery"],
+        topics: [
+          "Advanced facial assessment",
+          "Complex injection techniques",
+          "Full face rejuvenation",
+          "Complication mastery",
+        ],
       },
       {
         module: "Weeks 5-8: Device Excellence",
-        topics: ["Multi-modality treatments", "Advanced laser protocols", "Energy-based devices", "Combination approaches"],
+        topics: [
+          "Multi-modality treatments",
+          "Advanced laser protocols",
+          "Energy-based devices",
+          "Combination approaches",
+        ],
       },
       {
         module: "Weeks 9-12: Practice Leadership",
-        topics: ["Treatment planning excellence", "Patient relationship mastery", "Practice management", "Mentorship and training"],
+        topics: [
+          "Treatment planning excellence",
+          "Patient relationship mastery",
+          "Practice management",
+          "Mentorship and training",
+        ],
       },
     ],
-    certification: "Graduates receive the Medical Aesthetic Specialist Certification, the highest credential offered by Ziba Aesthetics Training Institute.",
-    prerequisites: ["Healthcare license", "Minimum 2 years aesthetic experience", "Portfolio review"],
+    certification:
+      "Graduates receive the Medical Aesthetic Specialist Certification, the highest credential offered by Ziba Aesthetics Training Institute.",
+    prerequisites: [
+      "Healthcare license",
+      "Minimum 2 years aesthetic experience",
+      "Portfolio review",
+    ],
   },
 }
 
@@ -394,7 +691,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
   return (
     <>
       <Navigation />
-      
+
       <main className="pt-20">
         {/* Hero Image */}
         <section className="relative h-[40vh] min-h-[320px] max-h-[480px]">
@@ -408,8 +705,8 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
             <div className="max-w-7xl mx-auto">
-              <Link 
-                href="/courses" 
+              <Link
+                href="/courses"
                 className="inline-flex items-center text-sm text-foreground/80 hover:text-foreground mb-4 transition-colors"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -434,7 +731,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
                   {course.overview}
                 </p>
               </div>
-              
+
               {/* Course Info Card */}
               <div className="bg-card border border-border p-8">
                 <div className="space-y-6">
@@ -463,15 +760,15 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Investment</p>
                     <p className="font-serif text-3xl font-medium text-foreground">{course.price}</p>
                   </div>
-                  <Button 
-                    asChild 
+                  <Button
+                    asChild
                     className="w-full bg-foreground text-background hover:bg-foreground/90"
                   >
                     <Link href="/admissions">Enroll Now</Link>
                   </Button>
-                  <Button 
-                    asChild 
-                    variant="outline" 
+                  <Button
+                    asChild
+                    variant="outline"
                     className="w-full border-foreground/20 bg-transparent"
                   >
                     <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
@@ -492,6 +789,11 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
                 </h2>
               </div>
               <div className="lg:col-span-2">
+                {course.whoIsItForNote && (
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {course.whoIsItForNote}
+                  </p>
+                )}
                 <ul className="space-y-4">
                   {course.whoIsItFor.map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -528,6 +830,11 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
                 </div>
               ))}
             </div>
+            {course.curriculumNote && (
+              <p className="mt-8 text-sm text-muted-foreground italic">
+                {course.curriculumNote}
+              </p>
+            )}
           </div>
         </section>
 
@@ -579,20 +886,20 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
               Ready to enroll in {course.title}?
             </h2>
             <p className="text-background/70 max-w-xl mx-auto mb-10">
-              Take the next step in your aesthetic career. Our admissions team is ready to 
+              Take the next step in your aesthetic career. Our admissions team is ready to
               help you get started.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="bg-background text-foreground hover:bg-background/90"
               >
                 <Link href="/admissions">Start Application</Link>
               </Button>
-              <Button 
-                asChild 
-                variant="outline" 
+              <Button
+                asChild
+                variant="outline"
                 size="lg"
                 className="border-background/30 text-background hover:bg-background/10 bg-transparent"
               >

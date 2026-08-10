@@ -12,31 +12,31 @@ export const metadata = {
 const advantages = [
   {
     icon: Users,
-    title: "Small Class Sizes",
-    description: "With a maximum of 8 students per class, you receive personalized attention and ample hands-on practice time.",
+    title: "Small, Private Classes",
+    description: "Our classes are intentionally small and private, with one-on-one instruction so every student receives individual attention from the instructor.",
     stat: "8",
     statLabel: "Max students per class",
   },
   {
     icon: BookOpen,
-    title: "Hands-On Training",
-    description: "Practice on real clients from day one under expert supervision. We believe mastery comes through doing.",
-    stat: "70%",
-    statLabel: "Practical training",
+    title: "Training Tailored to You",
+    description: "Every student begins with a pre-course consultation and skill-level assessment. Training is adapted to your experience and needs, with enough time to address your individual questions.",
+    stat: "100%",
+    statLabel: "Personalized learning",
   },
   {
     icon: Award,
-    title: "Industry Recognition",
-    description: "Our certifications are respected by employers, insurers, and clients worldwide.",
-    stat: "50+",
-    statLabel: "Partner clinics",
+    title: "Confidence & Competence",
+    description: "We focus on developing both technical skill and professional confidence — practical preparation for working independently from your very first client.",
+    stat: "5,000+",
+    statLabel: "Certified graduates",
   },
   {
-    icon: Briefcase,
-    title: "Career Support",
-    description: "From resume building to job placement assistance, we support your journey beyond graduation.",
-    stat: "92%",
-    statLabel: "Employment rate",
+    icon: Heart,
+    title: "Continued Support After Training",
+    description: "Our relationship doesn't end at graduation. We provide ongoing support with questions and guidance on required products after your training is complete.",
+    stat: "Ongoing",
+    statLabel: "Post-course support",
   },
 ]
 
@@ -59,14 +59,16 @@ const testimonials = [
 ]
 
 const benefits = [
-  "State-of-the-art training facilities",
-  "Latest devices and technology",
-  "Comprehensive course materials included",
-  "Flexible scheduling options",
-  "Payment plans available",
-  "Lifetime access to alumni resources",
-  "Continuing education discounts",
-  "Networking opportunities",
+  "Small, private classes",
+  "One-on-one instruction",
+  "Individual attention from the instructor",
+  "Pre-course consultation and skill-level assessment",
+  "Training tailored to your experience and needs",
+  "Enough time to address individual questions",
+  "Practical preparation for working independently",
+  "Focus on developing confidence and professional competence",
+  "Continued support after completing the course",
+  "Assistance with questions and required products after training",
 ]
 
 export default function WhyTrainPage() {
