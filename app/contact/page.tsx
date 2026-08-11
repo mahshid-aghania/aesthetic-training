@@ -95,15 +95,13 @@ export default function ContactPage() {
                 here to help you take the next step in your aesthetic career.
               </p>
               <div className="mt-10">
-                <a 
-                  href="https://zibamedicalaesthetics.janeapp.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <a
+                  href="#contact-form"
                   className="inline-flex items-center justify-center px-8 py-4 bg-foreground text-background font-medium tracking-wide hover:bg-foreground/90 transition-colors"
                 >
-                  Book Online
+                  Send Us a Message
                   <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </a>
               </div>
@@ -112,7 +110,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form & Info */}
-        <section className="py-24 lg:py-32">
+        <section id="contact-form" className="py-24 lg:py-32">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-5 gap-16">
               {/* Form */}

@@ -255,7 +255,7 @@ export default function WhyTrainPage() {
                 size="lg"
                 className="border-foreground/20 bg-transparent"
               >
-                <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                <Link href="/contact">Book a Consultation</Link>
               </Button>
             </div>
           </div>

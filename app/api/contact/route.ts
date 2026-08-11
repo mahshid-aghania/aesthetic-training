@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { firstName, lastName, email, phone } = body
+    const { firstName, lastName, email, phone, courseInterest, message, type } = body
 
     // Validate required fields
     if (!firstName || !lastName || !email) {
@@ -13,16 +13,21 @@ export async function POST(request: Request) {
       )
     }
 
+    const isBooking = type === "consultation"
+    const subjectLabel = isBooking ? "Consultation Request" : "Contact Form Submission"
+
     // Format the email content
     const emailContent = `
-New Contact Form Submission from Aesthetic Training Website
+New ${subjectLabel} from Aesthetic Training Website
 
 Name: ${firstName} ${lastName}
 Email: ${email}
-Phone: ${phone || "Not provided"}
+Phone: ${phone || "Not provided"}${isBooking ? `
+Course Interest: ${courseInterest || "Not specified"}
+Message: ${message || "None"}` : ""}
 
 ---
-This message was sent from the contact form at aesthetictraining.ca
+This message was sent from the form at aesthetictraining.ca
     `.trim()
 
     // Send email using Resend
@@ -46,7 +51,7 @@ This message was sent from the contact form at aesthetictraining.ca
         from: "Aesthetic Training Website <onboarding@resend.dev>",
         to: ["mahshid.aghania@gmail.com"],
         reply_to: email,
-        subject: `New Contact Form Submission - ${firstName} ${lastName}`,
+        subject: `New ${subjectLabel} - ${firstName} ${lastName}`,
         text: emailContent,
       }),
     })

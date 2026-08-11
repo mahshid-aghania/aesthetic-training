@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BookingModal } from "@/components/BookingModal"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -76,9 +77,11 @@ export function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button asChild variant="outline" className="text-sm tracking-wide px-6 bg-transparent">
-              <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
-            </Button>
+            <BookingModal>
+              <Button variant="outline" className="text-sm tracking-wide px-6 bg-transparent">
+                Book a Consultation
+              </Button>
+            </BookingModal>
             <Button asChild className="bg-foreground text-background hover:bg-foreground/90 text-sm tracking-wide px-6">
               <Link href="/admissions">Enroll Now</Link>
             </Button>
@@ -126,9 +129,11 @@ export function Navigation() {
                   </Link>
                 )
               ))}
-              <Button asChild variant="outline" className="mt-4 bg-transparent">
-                <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book Online</a>
-              </Button>
+              <BookingModal>
+                <Button variant="outline" className="mt-4 bg-transparent w-full">
+                  Book a Consultation
+                </Button>
+              </BookingModal>
               <Button asChild className="bg-foreground text-background hover:bg-foreground/90">
                 <Link href="/admissions">Enroll Now</Link>
               </Button>

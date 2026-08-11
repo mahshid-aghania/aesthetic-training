@@ -128,7 +128,7 @@ export default function TrainerPage() {
                     <Link href="/courses">Explore Training Programs</Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="bg-transparent">
-                    <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                    <Link href="/contact">Book a Consultation</Link>
                   </Button>
                 </div>
               </div>

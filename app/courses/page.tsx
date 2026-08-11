@@ -293,7 +293,7 @@ export default function CoursesPage() {
               size="lg"
               className="bg-foreground text-background hover:bg-foreground/90"
             >
-              <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+              <Link href="/contact">Book a Consultation</Link>
             </Button>
           </div>
         </section>

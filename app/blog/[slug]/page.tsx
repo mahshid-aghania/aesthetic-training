@@ -363,15 +363,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   >
                     Apply Now
                   </Link>
-                  <a
-                    href="https://zibamedicalaesthetics.janeapp.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/contact"
                     className="inline-flex items-center justify-center px-8 py-4 border border-background/30 text-background font-medium tracking-wide hover:bg-background/10 transition-colors"
                   >
                     Book a Consultation
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
         </div>
       </section>

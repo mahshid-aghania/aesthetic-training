@@ -326,7 +326,7 @@ export default function AdmissionsPage() {
                 size="lg"
                 className="border-background/30 text-background hover:bg-background/10 bg-transparent"
               >
-                <a href="https://zibamedicalaesthetics.janeapp.com/" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                <Link href="/contact">Book a Consultation</Link>
               </Button>
             </div>
           </div>

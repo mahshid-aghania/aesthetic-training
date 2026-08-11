@@ -14,7 +14,7 @@ const footerLinks = {
     { href: "/blog", label: "Blog" },
     { href: "/admissions", label: "Admissions" },
     { href: "/contact", label: "Contact" },
-    { href: "https://zibamedicalaesthetics.janeapp.com/", label: "Book Online", external: true },
+    { href: "/contact", label: "Book a Consultation" },
   ],
   legal: [
     { href: "/privacy", label: "Privacy Policy" },
